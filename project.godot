@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Text Forge"
+run/main_scene="uid://dx1alvj3tjt16"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://bx5sgrhlg4jb0"
+
+[autoload]
+
+SLib="*res://addons/SLib/SLib.gd"
+ExtensionCore="*res://scenes/extension_core/extension_core.gd"
+Signals="*res://scenes/signals.gd"
+SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
+
+[display]
+
+window/subwindows/embed_subwindows=false
+window/stretch/aspect="ignore"
+window/per_pixel_transparency/allowed=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SLib/plugin.cfg", "res://addons/TopNote/plugin.cfg", "res://addons/signal_lens/plugin.cfg")
