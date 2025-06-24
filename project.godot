@@ -21,9 +21,15 @@ SLib="*res://addons/SLib/SLib.gd"
 ExtensionCore="*res://scenes/extension_core/extension_core.gd"
 Signals="*res://scenes/signals.gd"
 SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
+Global="*res://scenes/global.gd"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
 
 [display]
 
+window/size/mode=2
 window/subwindows/embed_subwindows=false
 window/stretch/aspect="ignore"
 window/per_pixel_transparency/allowed=true

@@ -1,6 +1,10 @@
 extends AppScript
 
+var callback: int = -1
 var dialog: FileDialog
+
+func _ready() -> void:
+	menu.set_item_disabled(menu.get_item_index(id), Global.get_file_path() == "")
 
 func _run_action() -> void:
 	dialog = preload("res://scripts/script_scenes/save_file.tscn").instantiate()
@@ -11,7 +15,9 @@ func _save_file(path: String) -> void:
 	match path.get_extension().to_lower():
 		_:
 			var file = FileAccess.open(path, FileAccess.WRITE)
-			file.store_string(main_window.get_editor().text)
+			file.store_string(Global.get_editor_text())
 			file.close()
-	main_window.get_file_label().text = path.get_file()
-	main_window.get_file_label().tooltip_text = path
+	Global.set_file_name(path.get_file())
+	Global.set_file_path(path)
+	Signals.save_finished.emit(callback)
+	callback = -1

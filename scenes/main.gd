@@ -1,7 +1,7 @@
 extends Control
 class_name App_MainWindow
 
-@export var menu_container: HBoxContainer
+@export var menu_container: Container
 @export var file_label: Label
 @export var editor: CodeEdit
 @export var scripts: Node
@@ -26,11 +26,16 @@ func _ready() -> void:
 func _load_scripts() -> void:
 	for menu in main_menu_data:
 		for item in main_menu_data[menu]:
-			if item.get("type", 0) != 0: continue
+			if not item.get("type", 0) in [0, 1, 2, 3]: continue
 			if not FileAccess.file_exists("res://scripts/" + item.get("text", "").to_snake_case().replace(".", "") + ".gd"):
+				if item.has("popup"): item.get("popup").set_item_disabled(item.get("popup").get_item_index(item.get("code", 0)), true)
 				continue
 			var script = load("res://scripts/" + item.get("text", "").to_snake_case().replace(".", "") + ".gd").new()
-			Signals.script_run.connect(script.run)
+			if item.get("type", 0) == 0:
+				Signals.script_run.connect(script.run)
+			elif item.get("type", 0) == 1:
+				Signals.run_subscript.connect(script.run)
+			Signals.check_options.connect(script._ready)
 			script.id = item.get("code", -1)
 			script.menu = item.get("popup")
 			script.name = item.get("text", "").to_snake_case().replace(".", "")
@@ -91,8 +96,8 @@ func _load_main_menu() -> void:
 										submenu.add_item(submenu_item.get("text", ""), submenu_item.get("code", -1))
 									-1: # seperator
 										submenu.add_separator(submenu_item.get("text", ""))
-					# BUG connect submenu to handle state function
-					#submenu.id_pressed.connect(_handle_menu_option_state.bind(submenu))
+					# connect submenu to handle state function
+					submenu.id_pressed.connect(_handle_menu_option_state.bind(submenu, item.get("text", "")))
 					# add submenu
 					new_menu_button.get_popup().add_submenu_node_item(item.get("text", ""), submenu, item.get("code", -1))
 					# disable empty submenus
@@ -113,7 +118,7 @@ func _load_main_menu() -> void:
 	menu_container.add_child(edit_mode_node)
 
 
-func _handle_menu_option_state(id: int, menu: PopupMenu) -> void:
+func _handle_menu_option_state(id: int, menu: PopupMenu, rootmenu: String = "") -> void:
 	var index = menu.get_item_index(id)
 	# for checkable options
 	if menu.is_item_checkable(index) and not menu.is_item_radio_checkable(index):
@@ -138,15 +143,10 @@ func _handle_menu_option_state(id: int, menu: PopupMenu) -> void:
 			menu.set_item_checked(check_index, false) # set option unchecked
 			check_index += 1 # shift down
 	
-	Signals.script_run.emit(id)
-
-
-func get_file_label() -> Label:
-	return file_label
-
-
-func get_editor() -> CodeEdit:
-	return editor
+	if not rootmenu:
+		Signals.script_run.emit(id)
+	else:
+		Signals.run_subscript.emit(id, menu, rootmenu)
 
 
 func set_edit_mode(index: int) -> void:

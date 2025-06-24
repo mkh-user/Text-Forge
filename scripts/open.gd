@@ -3,21 +3,28 @@ extends AppScript
 var dialog: FileDialog
 
 func _ready() -> void:
-	Signals.open_file.connect(_open_file)
+	if not Signals.open_file.is_connected(_open_file):
+		Signals.open_file.connect(_open_file)
 
 func _run_action() -> void:
+	if Global.get_file_name().ends_with("*"):
+		Signals.save_request.emit(id)
+		return
 	dialog = preload("res://scripts/script_scenes/open_file.tscn").instantiate()
 	dialog.file_selected.connect(_open_file)
 	dialog.show()
 
 
 func _open_file(path: String) -> void:
-	if not FileAccess.file_exists(path): return
-	main_window.get_file_label().text = path.get_file()
-	main_window.get_file_label().tooltip_text = path
+	if not FileAccess.file_exists(path):
+		SLib.send_alert("Can't find this file!", "Text Forge - Alert")
+		return
+	Global.set_file_name(path.get_file())
+	Global.set_file_path(path)
 	_load_file(path)
 	_load_edit_mode(path)
 	_append_to_recent_files(path)
+	Signals.check_options.emit()
 
 
 func _append_to_recent_files(path: String) -> void:
@@ -36,8 +43,8 @@ func _load_file(path: String) -> void:
 	match path.get_extension().to_lower():
 		_:
 			var file = FileAccess.open(path, FileAccess.READ)
-			main_window.get_editor().text = file.get_as_text()
-			main_window.get_editor().editable = true
+			Global.set_editor_disabled(false)
+			Global.set_editor_text(file.get_as_text())
 			file.close()
 
 

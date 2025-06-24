@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2opir7mt4f00"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6qos"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.11834, 0.167543, 0.216756, 1)
+
+[sub_resource type="Theme" id="Theme_ej3ba"]
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_x6qos")
+
+[node name="ConfirmationDialog" type="ConfirmationDialog"]
+auto_translate_mode = 1
+title = "You have unsaved changes!"
+initial_position = 2
+size = Vector2i(714, 104)
+theme = SubResource("Theme_ej3ba")
+ok_button_text = "Save"
+dialog_text = "You have unsaved changes in currently opened file, what do you want to do with them?"
+cancel_button_text = "Discard"

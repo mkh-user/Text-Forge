@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx1alvj3tjt16"]
+[gd_scene load_steps=14 format=3 uid="uid://dx1alvj3tjt16"]
 
 [ext_resource type="Script" uid="uid://byayvu15ojy1j" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bwarwcjjx7it3" path="res://assets/active.png" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://4ymdoc7w7sv7" path="res://assets/deactive.png" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://dat7uwrm3mo45" path="res://assets/active_disabled.png" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://nn2nmwxds2nh" path="res://assets/deactive_disabled.png" id="5_tbgi4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sugp2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jyhfs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
 bg_color = Color(1, 1, 1, 0.215686)
@@ -24,9 +28,13 @@ thickness = 2
 [sub_resource type="Theme" id="Theme_sugp2"]
 PopupMenu/constants/item_start_padding = 5
 PopupMenu/icons/checked = ExtResource("2_sugp2")
+PopupMenu/icons/checked_disabled = ExtResource("3_tbgi4")
 PopupMenu/icons/radio_checked = ExtResource("2_sugp2")
+PopupMenu/icons/radio_checked_disabled = ExtResource("3_tbgi4")
 PopupMenu/icons/radio_unchecked = SubResource("CompressedTexture2D_sugp2")
+PopupMenu/icons/radio_unchecked_disabled = SubResource("CompressedTexture2D_jyhfs")
 PopupMenu/icons/unchecked = ExtResource("3_jyhfs")
+PopupMenu/icons/unchecked_disabled = ExtResource("5_tbgi4")
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_o5qli")
 PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxFlat_0wfyh")
 PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxFlat_0wfyh")
@@ -48,12 +56,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o5qli")
-menu_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer")
-file_label = NodePath("MarginContainer/VBoxContainer/Label")
-editor = NodePath("MarginContainer/VBoxContainer/CodeEdit")
-scripts = NodePath("Node")
+menu_container = NodePath("Margin/Sections/Menus")
+file_label = NodePath("Margin/Sections/FileLabel")
+editor = NodePath("Margin/Sections/Editor")
+scripts = NodePath("Scripts")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Back" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,7 +70,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0823529, 0.121569, 0.160784, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,20 +82,20 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Sections" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Menus" type="HFlowContainer" parent="Margin/Sections"]
 layout_mode = 2
 theme = SubResource("Theme_sugp2")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="FileLabel" type="Label" parent="Margin/Sections"]
 layout_mode = 2
 mouse_filter = 1
 text = "There is no opened file"
 text_overrun_behavior = 4
 
-[node name="CodeEdit" type="CodeEdit" parent="MarginContainer/VBoxContainer"]
+[node name="Editor" type="CodeEdit" parent="Margin/Sections"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_jyhfs")
@@ -98,6 +106,6 @@ symbol_lookup_on_click = true
 symbol_tooltip_on_hover = true
 line_folding = true
 
-[node name="Node" type="Node" parent="."]
+[node name="Scripts" type="Node" parent="."]
 
-[connection signal="text_changed" from="MarginContainer/VBoxContainer/CodeEdit" to="." method="_on_code_edit_text_changed"]
+[connection signal="text_changed" from="Margin/Sections/Editor" to="." method="_on_code_edit_text_changed"]

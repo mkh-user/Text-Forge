@@ -1,7 +1,11 @@
 extends AppScript
 
 func _run_action() -> void:
-	main_window.get_file_label().text = "New file"
-	main_window.get_file_label().tooltip_text = "Unsaved"
-	main_window.get_editor().editable = true
-	main_window.get_editor().text = ""
+	if Global.get_file_name().ends_with("*"):
+		Signals.save_request.emit(id)
+		return
+	Global.set_file_name("New file")
+	Global.set_file_path("Unsaved")
+	Global.set_editor_text("")
+	Global.set_editor_disabled(false)
+	Signals.check_options.emit()
