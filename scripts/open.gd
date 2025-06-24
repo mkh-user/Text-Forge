@@ -3,6 +3,7 @@ extends AppScript
 var dialog: FileDialog
 
 func _ready() -> void:
+	_load_shortcut()
 	if not Signals.open_file.is_connected(_open_file):
 		Signals.open_file.connect(_open_file)
 

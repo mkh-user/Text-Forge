@@ -28,7 +28,7 @@ func _load_scripts() -> void:
 		for item in main_menu_data[menu]:
 			if not item.get("type", 0) in [0, 1, 2, 3]: continue
 			if not FileAccess.file_exists("res://scripts/" + item.get("text", "").to_snake_case().replace(".", "") + ".gd"):
-				if item.has("popup"): item.get("popup").set_item_disabled(item.get("popup").get_item_index(item.get("code", 0)), true)
+				if item.has("popup") and item.get("type", 0) != 1: item.get("popup").set_item_disabled(item.get("popup").get_item_index(item.get("code", 0)), true)
 				continue
 			var script = load("res://scripts/" + item.get("text", "").to_snake_case().replace(".", "") + ".gd").new()
 			if item.get("type", 0) == 0:
@@ -52,10 +52,10 @@ func _load_main_menu() -> void:
 	# new button name (text)
 	var menu_name: String
 	# for each button
-	for menu_item: String in config.get_section_keys("main_menu"):
+	for menu_section: String in config.get_section_keys("main_menu"):
 		# load data in main_menu_data
-		main_menu_data[menu_item] = config.get_value("main_menu", menu_item)
-		
+		main_menu_data[menu_section] = config.get_value("main_menu", menu_section)
+	for menu_item: String in config.get_section_keys("main_menu"):
 		if menu_item.ends_with("_submenu"): continue # skip next steps for submenu items
 		
 		menu_name = menu_item.erase(menu_item.rfind("_menu"), 5) # get menu name
@@ -91,6 +91,7 @@ func _load_main_menu() -> void:
 							pass
 						_: # just load items to another popup menu for other submenus
 							for submenu_item: Dictionary in config.get_value("main_menu", item.get("text", "").to_snake_case() + "_submenu"):
+								main_menu_data[item.get("text", "").to_snake_case() + "_submenu"][main_menu_data[item.get("text", "").to_snake_case() + "_submenu"].find(submenu_item)]["popup"] = submenu
 								match submenu_item.get("type", 0):
 									0: # original option
 										submenu.add_item(submenu_item.get("text", ""), submenu_item.get("code", -1))

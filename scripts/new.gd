@@ -1,5 +1,8 @@
 extends AppScript
 
+func _ready() -> void:
+	_load_shortcut()
+
 func _run_action() -> void:
 	if Global.get_file_name().ends_with("*"):
 		Signals.save_request.emit(id)

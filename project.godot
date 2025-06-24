@@ -36,4 +36,4 @@ window/per_pixel_transparency/allowed=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SLib/plugin.cfg", "res://addons/TopNote/plugin.cfg", "res://addons/signal_lens/plugin.cfg")
+enabled=PackedStringArray("res://addons/SLib/plugin.cfg", "res://addons/signal_lens/plugin.cfg")

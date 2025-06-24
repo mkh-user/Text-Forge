@@ -1,6 +1,7 @@
 extends Node
 
 signal script_run(script_id)
+signal close_file
 signal open_file(path)
 signal save_request(from)
 signal save_finished(to)

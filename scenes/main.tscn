@@ -26,6 +26,8 @@ color = Color(0.0625005, 0.0961309, 0.129758, 1)
 thickness = 2
 
 [sub_resource type="Theme" id="Theme_sugp2"]
+PopupMenu/colors/font_accelerator_color = Color(0.701961, 0.701961, 0.701961, 0.392157)
+PopupMenu/constants/item_end_padding = 10
 PopupMenu/constants/item_start_padding = 5
 PopupMenu/icons/checked = ExtResource("2_sugp2")
 PopupMenu/icons/checked_disabled = ExtResource("3_tbgi4")
