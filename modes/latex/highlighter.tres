@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Highlighter" load_steps=2 format=3 uid="uid://bwjv22aubmjoe"]
+
+[ext_resource type="Script" uid="uid://bs1v1upam6vpq" path="res://resources/highlighter.gd" id="1_wpp4f"]
+
+[resource]
+script = ExtResource("1_wpp4f")
+number_color = Color(1, 0.7, 0.35, 1)
+symbol_color = Color(0.5, 0.8, 1, 1)
+function_color = Color(0.65, 1, 0.7, 1)
+member_variable_color = Color(1, 0.6, 0.85, 1)
+keyword_colors = Dictionary[Color, PackedStringArray]({
+Color(1, 0.65, 0.6, 1): PackedStringArray("documentclass", "usepackage", "title", "author", "date", "maketitle", "tableofcontents"),
+Color(0.7, 0.85, 1, 1): PackedStringArray("section", "subsection", "subsubsection", "paragraph", "subparagraph"),
+Color(0.85, 1, 0.8, 1): PackedStringArray("textbf", "textit", "emph", "underline", "texttt", "textsc"),
+Color(1, 0.8, 0.4, 1): PackedStringArray("frac", "sqrt", "sum", "int", "lim", "sin", "cos", "tan", "log", "ln"),
+Color(0.95, 0.7, 1, 1): PackedStringArray("begin", "end", "item", "includegraphics", "label", "ref", "cite"),
+Color(0.75, 0.75, 0.75, 1): PackedStringArray("today", "newline", "hfill", "vspace", "hspace")
+})
+member_keyword_colors = Dictionary[Color, PackedStringArray]({})
+code_regions = Dictionary[Color, PackedStringArray]({
+Color(0.85, 0.85, 0.7, 1): PackedStringArray("$", "$", "n"),
+Color(0.9, 0.9, 0.75, 1): PackedStringArray("`", "`", "n"),
+Color(0.8, 0.85, 1, 1): PackedStringArray("%", "", "y")
+})
+metadata/_custom_type_script = "uid://bs1v1upam6vpq"

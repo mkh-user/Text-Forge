@@ -3,7 +3,6 @@
 [sub_resource type="InputEventKey" id="InputEventKey_uyvbl"]
 device = -1
 alt_pressed = true
-shift_pressed = true
 ctrl_pressed = true
 keycode = 67
 

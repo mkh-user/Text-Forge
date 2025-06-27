@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Highlighter" load_steps=2 format=3 uid="uid://wu5n77k704c"]
+
+[ext_resource type="Script" uid="uid://bs1v1upam6vpq" path="res://resources/highlighter.gd" id="1_oxmyc"]
+
+[resource]
+script = ExtResource("1_oxmyc")
+number_color = Color(0.992, 0.733, 0.4, 1)
+symbol_color = Color(0.396, 0.796, 0.992, 1)
+function_color = Color(0.529, 0.898, 0.698, 1)
+member_variable_color = Color(0.945, 0.588, 0.745, 1)
+keyword_colors = Dictionary[Color, PackedStringArray]({
+Color(0.976, 0.443, 0.443, 1): PackedStringArray("TODO", "NOTE", "IMPORTANT")
+})
+member_keyword_colors = Dictionary[Color, PackedStringArray]({})
+code_regions = Dictionary[Color, PackedStringArray]({
+Color(1, 0.639, 0.38, 1): PackedStringArray("#", "", "y"),
+Color(0.6, 0.878, 0.733, 1): PackedStringArray("> ", "", "y"),
+Color(0.847, 0.788, 1, 1): PackedStringArray("```", "```", "n"),
+Color(0.588, 0.8, 1, 1): PackedStringArray("[", ")", "n")
+})
+metadata/_custom_type_script = "uid://bs1v1upam6vpq"

@@ -1,0 +1,22 @@
+[ gd_resource type="Resource" script_class="Highlighter" load_steps=2 format=3 uid="uid://c0mmcww17dwds" ]
+
+[ ext_resource type="Script" uid="uid://bs1v1upam6vpq" path="res://resources/highlighter.gd" id="1_f30qo" ]
+
+[ resource ]
+script = ExtResource("1_f30qo")
+number_color = Color(0.85, 0.95, 0.85, 1)
+symbol_color = Color(0.7, 0.9, 1.0, 1)
+function_color = Color(0.95, 0.65, 0.65, 1)
+member_variable_color = Color(1.0, 0.85, 0.55, 1)
+keyword_colors = Dictionary[Color, PackedStringArray]({
+Color(1.0, 0.6, 0.4, 1): PackedStringArray("ERROR", "FATAL"),
+Color(1.0, 0.8, 0.4, 1): PackedStringArray("WARNING", "WARN"),
+Color(0.6, 1.0, 0.6, 1): PackedStringArray("INFO", "SUCCESS"),
+Color(0.7, 0.8, 1.0, 1): PackedStringArray("DEBUG", "TRACE")
+})
+member_keyword_colors = Dictionary[Color, PackedStringArray]({})
+code_regions = Dictionary[Color, PackedStringArray]({
+Color(0.85, 0.85, 0.95, 1): PackedStringArray("[", "]", "n"),
+Color(0.75, 0.95, 0.85, 1): PackedStringArray("(", ")", "n")
+})
+metadata/_custom_type_script = "uid://bs1v1upam6vpq"

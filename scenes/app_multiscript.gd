@@ -3,12 +3,17 @@ class_name AppMultiscript
 
 var id: int
 var menu: PopupMenu
+var need_file: bool = false
 var action_shortcut: Shortcut = Shortcut.new()
 
 @onready var main_window: Control = Global.get_main_node()
 
 func _ready() -> void:
-	pass
+	_load_shortcut()
+
+func _check_option() -> void:
+	if need_file:
+		menu.set_item_disabled(menu.get_item_index(id), Global.get_file_path() == "")
 
 func _load_shortcut() -> void:
 	if FileAccess.file_exists("res://shortcuts/{0}.tres".format([name])):

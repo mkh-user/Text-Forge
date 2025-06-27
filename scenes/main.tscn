@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://dx1alvj3tjt16"]
+[gd_scene load_steps=17 format=3 uid="uid://dx1alvj3tjt16"]
 
 [ext_resource type="Script" uid="uid://byayvu15ojy1j" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bwarwcjjx7it3" path="res://assets/active.png" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://4ymdoc7w7sv7" path="res://assets/deactive.png" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://dat7uwrm3mo45" path="res://assets/active_disabled.png" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://nn2nmwxds2nh" path="res://assets/deactive_disabled.png" id="5_tbgi4"]
+[ext_resource type="FontFile" uid="uid://d03vkdeo2egtn" path="res://assets/JetBrainsMono-Regular.ttf" id="6_o6xl0"]
+[ext_resource type="Script" uid="uid://d0j1s4uv04c3w" path="res://scenes/editor_api.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://dtusvq1vqt0ul" path="res://scenes/editor.gd" id="7_tipki"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sugp2"]
 
@@ -47,21 +50,26 @@ PopupMenu/styles/separator = SubResource("StyleBoxLine_0wfyh")
 bg_color = Color(0.0625005, 0.0961309, 0.129758, 1)
 
 [sub_resource type="Theme" id="Theme_jyhfs"]
+CodeEdit/colors/caret_color = Color(0.875, 0.875, 0.875, 1)
+CodeEdit/colors/selection_color = Color(1, 1, 1, 0.117647)
+CodeEdit/fonts/font = ExtResource("6_o6xl0")
 CodeEdit/styles/normal = SubResource("StyleBoxFlat_sugp2")
 CodeEdit/styles/read_only = SubResource("StyleBoxFlat_sugp2")
 
-[node name="Main" type="Control" node_paths=PackedStringArray("menu_container", "file_label", "editor", "scripts")]
+[node name="Main" type="Control" node_paths=PackedStringArray("menu_container", "file_label", "editor", "scripts", "spliter")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_sugp2")
 script = ExtResource("1_o5qli")
 menu_container = NodePath("Margin/Sections/Menus")
 file_label = NodePath("Margin/Sections/FileLabel")
-editor = NodePath("Margin/Sections/Editor")
+editor = NodePath("Margin/Sections/SplitContainer/Editor")
 scripts = NodePath("Scripts")
+spliter = NodePath("Margin/Sections/SplitContainer")
 
 [node name="Back" type="ColorRect" parent="."]
 layout_mode = 1
@@ -97,17 +105,29 @@ mouse_filter = 1
 text = "There is no opened file"
 text_overrun_behavior = 4
 
-[node name="Editor" type="CodeEdit" parent="Margin/Sections"]
+[node name="SplitContainer" type="SplitContainer" parent="Margin/Sections"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 800
+
+[node name="Editor" type="CodeEdit" parent="Margin/Sections/SplitContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_jyhfs")
 editable = false
-context_menu_enabled = false
 scroll_smooth = true
 symbol_lookup_on_click = true
 symbol_tooltip_on_hover = true
 line_folding = true
+script = ExtResource("7_tipki")
+
+[node name="API" type="Control" parent="Margin/Sections/SplitContainer/Editor"]
+layout_mode = 1
+anchors_preset = 0
+script = ExtResource("6_tefeu")
 
 [node name="Scripts" type="Node" parent="."]
 
-[connection signal="text_changed" from="Margin/Sections/Editor" to="." method="_on_code_edit_text_changed"]
+[connection signal="drag_ended" from="Margin/Sections/SplitContainer" to="." method="_on_split_container_drag_ended"]
+[connection signal="resized" from="Margin/Sections/SplitContainer" to="." method="_on_split_container_resized"]
+[connection signal="text_changed" from="Margin/Sections/SplitContainer/Editor" to="." method="_on_code_edit_text_changed"]

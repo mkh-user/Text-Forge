@@ -1,10 +1,11 @@
 extends AppScript
 
 func _ready() -> void:
+	need_file = true
 	_load_shortcut()
-	menu.set_item_disabled(menu.get_item_index(id), Global.get_file_path() == "")
 
 func _run_action() -> void:
+	if Global.get_file_path() == "Unsaved": return
 	if Global.get_file_name().ends_with("*"):
 		Signals.save_request.emit(id)
 		return

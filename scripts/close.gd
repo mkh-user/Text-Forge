@@ -1,11 +1,9 @@
 extends AppScript
 
-
 func _ready() -> void:
+	need_file = true
 	_load_shortcut()
-	if not Signals.close_file.is_connected(_run_action):
-		Signals.close_file.connect(_run_action)
-	menu.set_item_disabled(menu.get_item_index(id), Global.get_file_path() == "")
+	Signals.close_file.connect(func(): _run_action())
 
 func _run_action() -> void:
 	if Global.get_file_name().ends_with("*"):

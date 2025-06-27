@@ -1,0 +1,21 @@
+[ gd_resource type="Resource" script_class="Highlighter" load_steps=2 format=3 uid="uid://fxnq0lis3c3i" ]
+
+[ ext_resource type="Script" uid="uid://bs1v1upam6vpq" path="res://resources/highlighter.gd" id="1_6kkwu" ]
+
+[ resource ]
+script = ExtResource("1_6kkwu")
+number_color = Color(0.9, 0.7, 0.5, 1)
+symbol_color = Color(0.5, 0.8, 1.0, 1)
+function_color = Color(1.0, 0.8, 0.5, 1)
+member_variable_color = Color(0.7, 1.0, 0.85, 1)
+keyword_colors = Dictionary[Color, PackedStringArray]({
+Color(0.9, 0.55, 0.55, 1): PackedStringArray("inherit", "initial", "unset", "revert"),
+Color(0.8, 0.65, 1.0, 1): PackedStringArray("auto", "block", "inline", "flex", "grid", "none")
+})
+member_keyword_colors = Dictionary[Color, PackedStringArray]({})
+code_regions = Dictionary[Color, PackedStringArray]({
+Color(0.7, 1.0, 0.95, 1): PackedStringArray("/*", "*/", "n"),
+Color(0.95, 0.95, 0.8, 1): PackedStringArray("\"", "\"", "n"),
+Color(0.95, 0.95, 0.8, 1): PackedStringArray("'", "'", "n")
+})
+metadata/_custom_type_script = "uid://bs1v1upam6vpq"

@@ -7,6 +7,9 @@ signal save_request(from)
 signal save_finished(to)
 signal run_subscript(id, submenu, rootmenu)
 signal check_options
+signal mode_selected(index)
+signal caret_selected(index)
+signal new_file
 
 func _ready() -> void:
 	save_request.connect(_handle_save_request)

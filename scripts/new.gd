@@ -2,6 +2,7 @@ extends AppScript
 
 func _ready() -> void:
 	_load_shortcut()
+	Signals.new_file.connect(func(): _run_action())
 
 func _run_action() -> void:
 	if Global.get_file_name().ends_with("*"):

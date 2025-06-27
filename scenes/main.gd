@@ -1,10 +1,11 @@
 extends Control
-class_name App_MainWindow
+class_name Core
 
 @export var menu_container: Container
 @export var file_label: Label
 @export var editor: CodeEdit
 @export var scripts: Node
+@export var spliter: SplitContainer
 
 const MENU_BUTTON_SCENE := preload("res://scenes/menu/menu_button.tscn")
 const EDIT_MODE_SCENE := preload("res://scenes/menu/edit_mode.tscn")
@@ -14,14 +15,13 @@ const TEMPLATES_FOLDER := "user://templates/"
 
 var edit_mode_node: OptionButton
 var recent_files_submenu: PopupMenu
+var split_raito := 0.75
 
 var main_menu_data: Dictionary
 
 func _ready() -> void:
-	UIExtension.new().get_main_window()
 	_load_main_menu()
 	_load_scripts()
-
 
 func _load_scripts() -> void:
 	for menu in main_menu_data:
@@ -35,11 +35,12 @@ func _load_scripts() -> void:
 				Signals.script_run.connect(script.run)
 			elif item.get("type", 0) == 1:
 				Signals.run_subscript.connect(script.run)
-			Signals.check_options.connect(script._ready)
+			Signals.check_options.connect(script._check_option)
 			script.id = item.get("code", -1)
 			script.menu = item.get("popup")
 			script.name = item.get("text", "").to_snake_case().replace(".", "")
 			scripts.add_child(script)
+	Signals.check_options.emit()
 
 
 func _load_main_menu() -> void:
@@ -81,6 +82,7 @@ func _load_main_menu() -> void:
 								file.close()
 								for recent in SLib.merge_unique(recent_files.split("\n", false), []):
 									if submenu.item_count == 15: break
+									if not FileAccess.file_exists(recent): continue
 									submenu.add_item(recent)
 						"New With Template": # needs special action
 							if not DirAccess.dir_exists_absolute(SLib.globalize_path(TEMPLATES_FOLDER)):
@@ -97,8 +99,11 @@ func _load_main_menu() -> void:
 										submenu.add_item(submenu_item.get("text", ""), submenu_item.get("code", -1))
 									-1: # seperator
 										submenu.add_separator(submenu_item.get("text", ""))
+							# connect submenu to handle state function
+							submenu.id_pressed.connect(_handle_menu_option_state.bind(submenu))
 					# connect submenu to handle state function
-					submenu.id_pressed.connect(_handle_menu_option_state.bind(submenu, item.get("text", "")))
+					if not submenu.id_pressed.is_connected(_handle_menu_option_state):
+						submenu.id_pressed.connect(_handle_menu_option_state.bind(submenu, item.get("text", "")))
 					# add submenu
 					new_menu_button.get_popup().add_submenu_node_item(item.get("text", ""), submenu, item.get("code", -1))
 					# disable empty submenus
@@ -162,9 +167,24 @@ func _on_code_edit_text_changed() -> void:
 func update_recent_files() -> void:
 	recent_files_submenu.clear()
 	if FileAccess.file_exists(RECENT_FILES_DATA):
-		var file = FileAccess.open(RECENT_FILES_DATA, FileAccess.READ)
-		var recent_files = file.get_as_text()
-		file.close()
-		for recent in SLib.merge_unique(recent_files.split("\n", false), []):
+		var file_access = FileAccess.open(RECENT_FILES_DATA, FileAccess.READ)
+		var recent_files_list = file_access.get_as_text()
+		file_access.close()
+		for recent in SLib.merge_unique(recent_files_list.split("\n", false), []):
 			if recent_files_submenu.item_count == 15: break
+			if not FileAccess.file_exists(recent): continue
 			recent_files_submenu.add_item(recent)
+	var recent_files := ""
+	for recent in recent_files_submenu.item_count:
+		recent_files += recent_files_submenu.get_item_text(recent) + "\n"
+	var file = FileAccess.open(RECENT_FILES_DATA, FileAccess.WRITE)
+	file.store_string(recent_files)
+	file.close()
+
+
+func _on_split_container_resized() -> void:
+	spliter.split_offset = spliter.size.x * split_raito
+
+
+func _on_split_container_drag_ended() -> void:
+	split_raito = spliter.split_offset / spliter.size.x

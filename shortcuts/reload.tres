@@ -2,6 +2,7 @@
 
 [sub_resource type="InputEventKey" id="InputEventKey_dc1cb"]
 device = -1
+shift_pressed = true
 ctrl_pressed = true
 keycode = 82
 
