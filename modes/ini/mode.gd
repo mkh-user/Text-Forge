@@ -17,7 +17,7 @@ func auto_format() -> void:
 	for i in lines.size():
 		var line := lines[i].strip_edges()
 		if line.begins_with("[") and line.ends_with("]"):
-			lines[i] = "[ " + line.trim_prefix("[").trim_suffix("]") + " ]"
+			lines[i] = "[ " + line.trim_prefix("[").trim_suffix("]").strip_edges() + " ]"
 		elif "=" in line:
 			var parts = line.split("=", false, 2)
 			lines[i] = parts[0].strip_edges() + " = " + parts[1].strip_edges()
