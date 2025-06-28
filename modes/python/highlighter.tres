@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Highlighter" load_steps=2 format=3 uid="uid://ntxmpucm2c0m"]
+
+[ext_resource type="Script" uid="uid://bs1v1upam6vpq" path="res://resources/highlighter.gd" id="1_ewqo8"]
+
+[resource]
+script = ExtResource("1_ewqo8")
+number_color = Color(0.85, 1, 0.7, 1)
+symbol_color = Color(0.7, 0.8, 1, 1)
+function_color = Color(0.35, 0.7, 1, 1)
+member_variable_color = Color(0.8, 0.85, 1, 1)
+keyword_colors = Dictionary[Color, PackedStringArray]({
+    Color(1, 0.45, 0.55, 1): PackedStringArray("def", "class", "lambda", "return", "yield", "try", "except", "finally", "raise"),
+    Color(1, 0.6, 0.85, 1): PackedStringArray("if", "elif", "else", "for", "while", "break", "continue", "pass", "with", "as", "assert"),
+    Color(1, 0.7, 0.5, 1): PackedStringArray("import", "from", "global", "nonlocal", "del", "and", "or", "not", "in", "is"),
+    Color(0.9, 0.8, 0.6, 1): PackedStringArray("True", "False", "None")
+})
+member_keyword_colors = Dictionary[Color, PackedStringArray]({})
+code_regions = Dictionary[Color, PackedStringArray]({
+    Color(1, 0.92, 0.64, 1): PackedStringArray("\"", "\"", "n"),
+    Color(1, 0.92, 0.64, 1): PackedStringArray("\'", "\'", "n"),
+    Color(0.8, 0.81, 0.82, 0.5): PackedStringArray("#", "", "y")
+})
+metadata/_custom_type_script = "uid://bs1v1upam6vpq"
