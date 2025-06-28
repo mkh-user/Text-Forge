@@ -1,4 +1,4 @@
-[en](https://github.com/mkh-user/Text-Forge/tree/Main/README.md) | [fa](https://github.com/mkh-user/Text-Forge/tree/Main/docs/fa/README.md)
+[en](https://github.com/mkh-user/Text-Forge/tree/Main/README.md) | [fa](https://github.com/mkh-user/Text-Forge/tree/Main/docs/fa/README.md) | [zh](https://github.com/mkh-user/Text-Forge/tree/Main/docs/zh/README.md) | [es](https://github.com/mkh-user/Text-Forge/tree/Main/docs/es/README.md)
 # Text Forge
 
 Text Forge is a lightweight, extensible, and mode-driven text editor. It's customizable, scriptable, and ready to handle
