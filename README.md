@@ -23,7 +23,7 @@ any format and language in a data-driven and object-oriented environment without
 
 ---
 
-### Why Text Forge?
+## Why Text Forge?
 
 Text Forge is a response to the growing demand for tools that **empower** rather than constrain. Designed as a standalone text editor with a focus on **modularity, deep customization, and minimal design**, it offers a flexible and efficient foundation for users who want full control over their editing environment.
 
