@@ -4,6 +4,9 @@
 Text Forge is a lightweight, extensible, and mode-driven text editor. It's customizable, scriptable, and ready to handle
 any format and language in a data-driven and object-oriented environment without any change in source.
 
+> [!Note]
+> Text Forge still has many uncompleted/unenabled capabilities, but it is usable even now (because most of these uncompleted capabilities are not core-related).
+
 ---
 
 ## ✨ Core Principles
@@ -85,11 +88,20 @@ Redistribution or commercial use requires written permission. For inquiries, con
 
 ---
 
-## 🚀 Running Locally
+## 🚀 Installing
 
 - Requires desktop platforms (full checked in Windows)
 
-Download latest release from releases page, extract where you want and run executable `TextForge` file!
+### Get Core
+#### From Releases
+Just download Text Forge from Github releases page and run it! To keep our editor lightweight and clean, we don't include modes in the releases!
+#### From Source
+You need **Godot Engine** (4.4 or later) to run Text Forge. After get it, download or clone repo and open it with Godot. Then, just press `F5` to run project.  To keep source repo clean and separated from modes, we don't include modes in this repo! (`modes/` folder is ignored)
+
+### Get Modes & Packages
+ To get the **modes** you need, go to [this link](https://github.com/mkh-user/text-forge-modes/releases), download your modes, and extract them into the `modes` folder.
+ 
+ Also, You can find equipped **packages** for specific cases on [this page](https://github.com/mkh-user/text-forge-modes/wiki/Packages). Packages are a collection of mods that are useful for a specific type of user.
 
 ---
 
