@@ -5,7 +5,6 @@ class_name Core
 @export var file_label: Label
 @export var editor: CodeEdit
 @export var scripts: Node
-@export var spliter: SplitContainer
 
 const MENU_BUTTON_SCENE := preload("res://scenes/menu/menu_button.tscn")
 const EDIT_MODE_SCENE := preload("res://scenes/menu/edit_mode.tscn")
@@ -15,7 +14,6 @@ const TEMPLATES_FOLDER := "user://templates/"
 
 var edit_mode_node: OptionButton
 var recent_files_submenu: PopupMenu
-var split_raito := 0.75
 
 var main_menu_data: Dictionary
 
@@ -180,11 +178,3 @@ func update_recent_files() -> void:
 	var file = FileAccess.open(RECENT_FILES_DATA, FileAccess.WRITE)
 	file.store_string(recent_files)
 	file.close()
-
-
-func _on_split_container_resized() -> void:
-	spliter.split_offset = spliter.size.x * split_raito
-
-
-func _on_split_container_drag_ended() -> void:
-	split_raito = spliter.split_offset / spliter.size.x
