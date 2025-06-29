@@ -4,7 +4,7 @@
 
 If you discover a security vulnerability in **Text Forge**, please **do not create a public issue**. Instead, report it privately to the maintainer:
 
-📧 Email: [mahan.khalili.001@gmail.com]  
+📧 Email: mahan.khalili.001@gmail.com
 
 We appreciate responsible disclosure and will work with you to address the issue quickly and transparently.
 
