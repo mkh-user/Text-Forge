@@ -49,6 +49,10 @@ corner_radius_bottom_left = 5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tipki"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 bg_color = Color(0.0625005, 0.0961309, 0.129758, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
