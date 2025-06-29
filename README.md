@@ -81,10 +81,7 @@ See [here](https://github.com/mkh-user/text-forge) for available modes.
 
 ## 🔐 License
 
-© 2025 Mahan Khalili.  
-All rights reserved. This software is owned by the creator and may only be used for personal or academic purposes.  
-Redistribution or commercial use requires written permission. For inquiries, contact: 
-[mahan.khalili.001@gmail.com](mailto:mahan.khalili.001@gmail.com)
+MIT 2025 Mahan Khalili. See more informations in LICENSE file.
 
 ---
 
