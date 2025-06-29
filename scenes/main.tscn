@@ -54,6 +54,8 @@ scroll_smooth = true
 symbol_lookup_on_click = true
 symbol_tooltip_on_hover = true
 line_folding = true
+gutters_draw_line_numbers = true
+gutters_draw_fold_gutter = true
 script = ExtResource("7_tipki")
 
 [node name="API" type="Control" parent="Margin/Sections/Editor"]
