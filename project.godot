@@ -15,7 +15,7 @@ run/main_scene="uid://dx1alvj3tjt16"
 config/auto_accept_quit=false
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="uid://bx5sgrhlg4jb0"
+config/icon="uid://c5as0fd5jhnm8"
 
 [autoload]
 
