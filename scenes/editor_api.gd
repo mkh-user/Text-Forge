@@ -108,7 +108,7 @@ func _load_file(loader: GDScript, path: String) -> void:
 	Global.set_editor_disabled(false)
 
 
-func _load_highlighter(resource: Highlighter) -> void:
+func _load_highlighter(resource: Dictionary) -> void:
 	var code_highlighter = CodeHighlighter.new()
 	code_highlighter.number_color = resource.number_color
 	code_highlighter.symbol_color = resource.symbol_color
@@ -145,6 +145,8 @@ func _load_modes() -> void:
 		mode.author = config.get_value("mode", "author")
 		mode.version = config.get_value("mode", "version")
 		mode.extensions = config.get_value("mode", "extensions")
-		mode.highlighter = ResourceLoader.load(MODES_FOLDER.path_join(mode_dir).path_join("highlighter.tres"))
+		mode.highlighter = {}
+		for key in config.get_section_keys("highlighter"):
+			mode.highlighter[key] = config.get_value("highlighter", key)
 		mode.script = load(MODES_FOLDER.path_join(mode_dir).path_join("mode.gd"))
 		modes.append(mode)
