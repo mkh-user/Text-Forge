@@ -39,3 +39,7 @@ window/per_pixel_transparency/allowed=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/SLib/plugin.cfg", "res://addons/signal_lens/plugin.cfg")
+
+[gui]
+
+theme/custom="uid://dnvygvv1c55qb"

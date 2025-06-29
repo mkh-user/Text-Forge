@@ -1,60 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dx1alvj3tjt16"]
+[gd_scene load_steps=4 format=3 uid="uid://dx1alvj3tjt16"]
 
 [ext_resource type="Script" uid="uid://byayvu15ojy1j" path="res://scenes/main.gd" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://bwarwcjjx7it3" path="res://assets/active.png" id="2_sugp2"]
-[ext_resource type="Texture2D" uid="uid://4ymdoc7w7sv7" path="res://assets/deactive.png" id="3_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://dat7uwrm3mo45" path="res://assets/active_disabled.png" id="3_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://nn2nmwxds2nh" path="res://assets/deactive_disabled.png" id="5_tbgi4"]
-[ext_resource type="FontFile" uid="uid://d03vkdeo2egtn" path="res://assets/JetBrainsMono-Regular.ttf" id="6_o6xl0"]
 [ext_resource type="Script" uid="uid://d0j1s4uv04c3w" path="res://scenes/editor_api.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dtusvq1vqt0ul" path="res://scenes/editor.gd" id="7_tipki"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sugp2"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jyhfs"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
-bg_color = Color(1, 1, 1, 0.215686)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
-bg_color = Color(0.11834, 0.167543, 0.216756, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.0625005, 0.0961309, 0.129758, 1)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_0wfyh"]
-color = Color(0.0625005, 0.0961309, 0.129758, 1)
-thickness = 2
-
-[sub_resource type="Theme" id="Theme_sugp2"]
-PopupMenu/colors/font_accelerator_color = Color(0.701961, 0.701961, 0.701961, 0.392157)
-PopupMenu/constants/item_end_padding = 10
-PopupMenu/constants/item_start_padding = 5
-PopupMenu/icons/checked = ExtResource("2_sugp2")
-PopupMenu/icons/checked_disabled = ExtResource("3_tbgi4")
-PopupMenu/icons/radio_checked = ExtResource("2_sugp2")
-PopupMenu/icons/radio_checked_disabled = ExtResource("3_tbgi4")
-PopupMenu/icons/radio_unchecked = SubResource("CompressedTexture2D_sugp2")
-PopupMenu/icons/radio_unchecked_disabled = SubResource("CompressedTexture2D_jyhfs")
-PopupMenu/icons/unchecked = ExtResource("3_jyhfs")
-PopupMenu/icons/unchecked_disabled = ExtResource("5_tbgi4")
-PopupMenu/styles/hover = SubResource("StyleBoxFlat_o5qli")
-PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxFlat_0wfyh")
-PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxFlat_0wfyh")
-PopupMenu/styles/panel = SubResource("StyleBoxFlat_0wfyh")
-PopupMenu/styles/separator = SubResource("StyleBoxLine_0wfyh")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
-bg_color = Color(0.0625005, 0.0961309, 0.129758, 1)
-
-[sub_resource type="Theme" id="Theme_jyhfs"]
-CodeEdit/colors/caret_color = Color(0.875, 0.875, 0.875, 1)
-CodeEdit/colors/selection_color = Color(1, 1, 1, 0.117647)
-CodeEdit/fonts/font = ExtResource("6_o6xl0")
-CodeEdit/styles/normal = SubResource("StyleBoxFlat_sugp2")
-CodeEdit/styles/read_only = SubResource("StyleBoxFlat_sugp2")
 
 [node name="Main" type="Control" node_paths=PackedStringArray("menu_container", "file_label", "editor", "scripts")]
 layout_mode = 3
@@ -63,7 +11,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_sugp2")
 script = ExtResource("1_o5qli")
 menu_container = NodePath("Margin/Sections/Menus")
 file_label = NodePath("Margin/Sections/FileLabel")
@@ -86,17 +33,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="Sections" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
 
 [node name="Menus" type="HFlowContainer" parent="Margin/Sections"]
 layout_mode = 2
-theme = SubResource("Theme_sugp2")
 
 [node name="FileLabel" type="Label" parent="Margin/Sections"]
 layout_mode = 2
@@ -107,7 +49,6 @@ text_overrun_behavior = 4
 [node name="Editor" type="CodeEdit" parent="Margin/Sections"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = SubResource("Theme_jyhfs")
 editable = false
 scroll_smooth = true
 symbol_lookup_on_click = true
@@ -120,6 +61,8 @@ layout_mode = 1
 anchors_preset = 0
 script = ExtResource("6_tefeu")
 
-[node name="Scripts" type="Node" parent="."]
+[node name="Scripts" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
 
 [connection signal="text_changed" from="Margin/Sections/Editor" to="." method="_on_code_edit_text_changed"]

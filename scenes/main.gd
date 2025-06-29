@@ -4,7 +4,7 @@ class_name Core
 @export var menu_container: Container
 @export var file_label: Label
 @export var editor: CodeEdit
-@export var scripts: Node
+@export var scripts: Control
 
 const MENU_BUTTON_SCENE := preload("res://scenes/menu/menu_button.tscn")
 const EDIT_MODE_SCENE := preload("res://scenes/menu/edit_mode.tscn")
