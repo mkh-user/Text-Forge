@@ -1,6 +1,9 @@
 extends CodeEdit
 class_name Editor
 
+## Main editor node
+
+## Returns char index in [param line] and [param column]
 func get_char_index(line: int, column: int) -> int:
 	var before = ""
 	var counter = 0

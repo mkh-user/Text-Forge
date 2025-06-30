@@ -1,11 +1,18 @@
 extends Control
 class_name EditorAPI
 
+## Editor API and Mode Manager
+
+## Modes folder
 const MODES_FOLDER := "res://modes/"
 
+## List of all modes
 var modes: Array = []
+## Selected mode
 var selected_mode_index: int
+## Currently is use mode
 var current_mode: Dictionary
+
 
 func _ready() -> void:
 	Global.get_editor().add_comment_delimiter("#", "", true)
@@ -13,13 +20,14 @@ func _ready() -> void:
 	_load_modes()
 
 
+## Will send auto format command to correct mode
 func auto_format(path: String) -> void:
 	if path == "Unsaved":
-		SLib.send_alert("Please save file before auto indent")
+		SLib.send_alert("Please save file before auto formatting")
 		return
 	var available_modes := _get_available_modes(path.get_extension())
 	if available_modes.size() == 0:
-		SLib.send_alert("Can't find any mode for auto indent this file!")
+		SLib.send_alert("Can't find any mode for auto format this file!")
 		current_mode = {}
 		return
 	if current_mode in available_modes:
@@ -28,7 +36,7 @@ func auto_format(path: String) -> void:
 		_auto_format(available_modes[0].script)
 	else:
 		var select_menu := PopupMenu.new()
-		select_menu.add_separator("Select a mode to auto indent")
+		select_menu.add_separator("Select a mode to auto format")
 		for mode in available_modes:
 			select_menu.add_item(mode.name)
 		select_menu.index_pressed.connect(func(index): Signals.mode_selected.emit(index))
@@ -44,6 +52,7 @@ func _auto_format(script: GDScript) -> void:
 	script.new().auto_format()
 
 
+## Will send save command to correct mode
 func save_file(path: String) -> void:
 	var available_modes := _get_available_modes(path.get_extension())
 	if available_modes.size() == 0:
@@ -71,6 +80,7 @@ func save_file(path: String) -> void:
 		_save_file(available_modes[selected_mode_index].script, path)
 
 
+## Will send load command to correct mode
 func load_file(path: String) -> void:
 	var available_modes := _get_available_modes(path.get_extension())
 	if available_modes.size() == 0:
