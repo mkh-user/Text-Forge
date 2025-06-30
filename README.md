@@ -63,7 +63,7 @@ editor core!
 ## 🧩 Creating a Custom Mode
 
 Text Forge can handle any file with modes, so if you want to create a mode or edit existing one, you can see 
-[here](https://github.com/mkh-user/text-forge) for guides and examples.
+[here](https://github.com/mkh-user/text-forge-modes/wiki/Modes-structure-guide) for guides and examples.
 
 ---
 
@@ -75,7 +75,7 @@ You can add any functionality in text forge without change source, see [here](ht
 
 ## ✅ Available Modes
 
-See [here](https://github.com/mkh-user/text-forge) for available modes.
+See [here](https://github.com/mkh-user/text-forge-modes) for available modes.
 
 ---
 
