@@ -11,7 +11,10 @@ config_version=5
 [application]
 
 config/name="Text Forge"
+config/version="0.1"
 run/main_scene="uid://dx1alvj3tjt16"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Text Forge"
 config/auto_accept_quit=false
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "Forward Plus")
