@@ -9,7 +9,7 @@ func _ready() -> void:
 func _run_action() -> void:
 	if Global.get_file_path() == "Unsaved":
 		main_window.scripts.get_node("save_as").callback = callback
-		Signals.script_run.emit(id + 1)
+		Signals.run_script.emit(id + 1)
 		return
 	if not Global.get_file_name().ends_with("*"): return
 	_save_file(Global.get_file_path())
