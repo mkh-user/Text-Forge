@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fix call _update_recent_files from scripts.
+- [Fix call _update_recent_files from scripts](https://github.com/mkh-user/Text-Forge/commit/8c8ce45f759af6887699f7702c8abfde04915a98).
 
 ## [0.1.0] - 2025-06-30
 
