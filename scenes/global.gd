@@ -7,25 +7,25 @@ class_name GlobalAccess
 
 ## Returns currently opened file path
 func get_file_path() -> String:
-	return get_main_node().file_label.tooltip_text
+	return get_core().file_label.tooltip_text
 
 ## Returns currently opened file name
 func get_file_name() -> String:
-	return get_main_node().file_label.text
+	return get_core().file_label.text
 
 ## Sets [param path] as opened file path
 ## [br][b]Note:[/b] This action isn't loading!
 func set_file_path(path: String) -> void:
-	get_main_node().file_label.tooltip_text = path
+	get_core().file_label.tooltip_text = path
 
 ## Sets [param file_name] as opened file name
 func set_file_name(file_name: String) -> void:
-	get_main_node().file_label.text = file_name
+	get_core().file_label.text = file_name
 
 ## Returns [Editor] node
 ## [br][b][color=red]Caution:[/color] Some actions on this node can make crash![/b]
 func get_editor() -> Editor:
-	return get_main_node().editor
+	return get_core().editor
 
 ## Returns current text in editor
 func get_editor_text() -> String:
@@ -45,12 +45,12 @@ func is_editor_disabled() -> bool:
 	return not get_editor().editable
 
 ## Returns [Core] node
-func get_main_node() -> Core:
+func get_core() -> Core:
 	return get_node("/root/Main")
 
 ## Returs node in [Core] that keep action scripts
 func get_scripts_node() -> Node:
-	return get_main_node().scripts
+	return get_core().scripts
 
 ## Returns [EditorAPI] node
 func get_editor_api() -> EditorAPI:

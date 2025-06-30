@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Help menu
+- Docs: Project Structure Guide
 
 ### Removed
 
@@ -28,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Action Script support.
 - File based shortcut system.
 - Data-driven UI.
+- Docs in 4 languages (en, fa, es, zh)
 
 [unreleased]: https://github.com/mkh-user/text-forge/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/mkh-user/text-forge/releases/tag/v0.1.0
