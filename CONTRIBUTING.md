@@ -13,6 +13,8 @@ Thank you for your interest in contributing to **Text Forge**. This guide is her
 - Improving code or documentation
 - Designing and refining UI/UX
 - Building or updating modular plugins
+- Contributing in [Projects](https://github.com/mkh-user/Text-Forge/projects)
+- Accepting responsibility for issues labeled `help wanted` or `unassigned`
 
 ---
 
