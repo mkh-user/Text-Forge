@@ -3,6 +3,8 @@ class_name SignalBus
 
 ## Signal bus accessable with [code]Signals[/code] autoload
 
+@warning_ignore_start("unused_signal")
+
 ## Emits when a script run requested, it will send to all scripts and scripts will filter it by [param script_id]
 signal run_script(script_id)
 ## Emits when a subscript run requested, it will send to all multi scripts
@@ -29,6 +31,8 @@ signal mode_selected
 
 ## Requests updating for recent files, [method Core._update_recent_files] is basic connection
 signal update_recent_files
+
+@warning_ignore_restore("unused_signal")
 
 func _ready() -> void:
 	save_request.connect(_handle_save_request)
