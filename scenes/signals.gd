@@ -12,6 +12,9 @@ signal run_subscript(id: int, submenu: PopupMenu, rootmenu: String)
 ## Will send to all scripts to check current state with activation state for each script
 signal check_options
 
+## Standard way to send notifications between modules
+signal notification(id: String, data: Array)
+
 ## Requests close file, close script should connect itself to this
 signal close_file
 ## Requests open file, open script should connect itself to this
