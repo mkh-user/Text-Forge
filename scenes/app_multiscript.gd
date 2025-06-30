@@ -6,7 +6,7 @@ var menu: PopupMenu
 var need_file: bool = false
 var action_shortcut: Shortcut = Shortcut.new()
 
-@onready var main_window: Control = Global.get_main_node()
+@onready var main_window: Control = Global.get_core()
 
 func _ready() -> void:
 	_load_shortcut()
