@@ -1,4 +1,4 @@
-extends AppScript
+extends ActionScript
 
 func _run_action() -> void:
 	for caret in Global.get_editor().get_caret_count():

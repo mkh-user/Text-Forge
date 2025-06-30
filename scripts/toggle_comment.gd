@@ -1,4 +1,4 @@
-extends AppScript
+extends ActionScript
 
 func _run_action() -> void:
 	if Global.get_editor().delimiter_comments.size() == 0: return

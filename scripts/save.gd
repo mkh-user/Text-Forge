@@ -1,4 +1,4 @@
-extends AppScript
+extends ActionScript
 
 var callback: int = -1
 

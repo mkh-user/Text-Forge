@@ -1,5 +1,5 @@
 extends Node
-class_name AppScript
+class_name ActionScript
 
 var id: int
 var menu: PopupMenu

@@ -1,4 +1,4 @@
-extends AppScript
+extends ActionScript
 
 func _ready() -> void:
 	need_file = true

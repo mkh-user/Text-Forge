@@ -1,4 +1,4 @@
-extends AppScript
+extends ActionScript
 
 func _run_action() -> void:
 	if Global.get_file_name().ends_with("*"):

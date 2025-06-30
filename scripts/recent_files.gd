@@ -1,4 +1,4 @@
-extends AppMultiscript
+extends MultiActionScript
 
 func _run_action(item_id, popup) -> void:
 	if Global.get_file_name().ends_with("*"):

@@ -1,5 +1,5 @@
 extends Node
-class_name AppMultiscript
+class_name MultiActionScript
 
 var id: int
 var menu: PopupMenu

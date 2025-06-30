@@ -1,4 +1,4 @@
-extends AppScript
+extends ActionScript
 
 var selected_caret_index: int = -1
 
