@@ -35,5 +35,5 @@ func _append_to_recent_files(path: String) -> void:
 	file = FileAccess.open(main_window.RECENT_FILES_DATA, FileAccess.WRITE)
 	file.store_string(path + "\n" + files)
 	file.close()
-	main_window.update_recent_files()
+	Signals.update_recent_files.emit()
 	menu.set_item_disabled(menu.get_item_index(id + 1), main_window.recent_files_submenu.item_count == 0)
