@@ -1,26 +1,44 @@
 extends Control
 class_name Core
 
+## Core class of Text Forge for base node in editor window
+##
+## Text Forge is a lightweight, extensible, and mode-driven text editor. Customizable, scriptable, 
+## that can handle any format and language! [br]
+## [b]Note:[/b] Text Forge is open source, see [url=https://mkh-user/text-forge]Official repo[/url] for more information.
+
+## [Container] that will keep menu buttons
 @export var menu_container: Container
+## [Label] for file name and path
 @export var file_label: Label
+## Editor node
 @export var editor: CodeEdit
+## Scripts Node, will keep action scripts separated from core logic
 @export var scripts: Control
 
+## Saved scene for menus like "File" and "Edit", see also [member menu_container]
 const MENU_BUTTON_SCENE := preload("res://scenes/menu/menu_button.tscn")
-const EDIT_MODE_SCENE := preload("res://scenes/menu/edit_mode.tscn")
+## Path to UI configurations
 const MAIN_UI_DATA := "res://data/main_ui.ini"
+## Recent files log file
 const RECENT_FILES_DATA := "user://recent_files.txt"
+## Folder for saved templates
 const TEMPLATES_FOLDER := "user://templates/"
 
-var edit_mode_node: OptionButton
+## Recent files [PopupMenu]
 var recent_files_submenu: PopupMenu
 
+## Configurations loaded from UI data
 var main_menu_data: Dictionary
 
+## This is start point of Text Forge
 func _ready() -> void:
+	Signals.update_recent_files.connect(_update_recent_files)
 	_load_main_menu()
 	_load_scripts()
 
+
+## This function will load script for each item in menu, if script doesn't exists will disable its option
 func _load_scripts() -> void:
 	for menu in main_menu_data:
 		for item in main_menu_data[menu]:
@@ -30,7 +48,7 @@ func _load_scripts() -> void:
 				continue
 			var script = load("res://scripts/" + item.get("text", "").to_snake_case().replace(".", "") + ".gd").new()
 			if item.get("type", 0) == 0:
-				Signals.script_run.connect(script.run)
+				Signals.run_script.connect(script.run)
 			elif item.get("type", 0) == 1:
 				Signals.run_subscript.connect(script.run)
 			Signals.check_options.connect(script._check_option)
@@ -41,24 +59,21 @@ func _load_scripts() -> void:
 	Signals.check_options.emit()
 
 
+## This function will load data from UI source and generate buttons
 func _load_main_menu() -> void:
-	# load data
 	var config := ConfigFile.new()
 	config.load(MAIN_UI_DATA)
 	
 	# to keep new menu button for each loop
 	var new_menu_button: MenuButton
-	# new button name (text)
 	var menu_name: String
-	# for each button
+	# load data and generate buttons
 	for menu_section: String in config.get_section_keys("main_menu"):
-		# load data in main_menu_data
 		main_menu_data[menu_section] = config.get_value("main_menu", menu_section)
 	for menu_item: String in config.get_section_keys("main_menu"):
 		if menu_item.ends_with("_submenu"): continue # skip next steps for submenu items
 		
-		menu_name = menu_item.erase(menu_item.rfind("_menu"), 5) # get menu name
-		menu_name = menu_name.capitalize() # capitalize it
+		menu_name = menu_item.erase(menu_item.rfind("_menu"), 5).capitalize() # get menu name
 		
 		new_menu_button = MENU_BUTTON_SCENE.instantiate() # create new menu button
 		new_menu_button.text = menu_name
@@ -91,7 +106,8 @@ func _load_main_menu() -> void:
 							pass
 						_: # just load items to another popup menu for other submenus
 							for submenu_item: Dictionary in config.get_value("main_menu", item.get("text", "").to_snake_case() + "_submenu"):
-								main_menu_data[item.get("text", "").to_snake_case() + "_submenu"][main_menu_data[item.get("text", "").to_snake_case() + "_submenu"].find(submenu_item)]["popup"] = submenu
+								var submenu_name: String = item.get("text", "").to_snake_case() + "_submenu"
+								main_menu_data[submenu_name][main_menu_data[submenu_name].find(submenu_item)]["popup"] = submenu
 								match submenu_item.get("type", 0):
 									0: # original option
 										submenu.add_item(submenu_item.get("text", ""), submenu_item.get("code", -1))
@@ -99,7 +115,7 @@ func _load_main_menu() -> void:
 										submenu.add_separator(submenu_item.get("text", ""))
 							# connect submenu to handle state function
 							submenu.id_pressed.connect(_handle_menu_option_state.bind(submenu))
-					# connect submenu to handle state function
+					# connect submenu to handle state function for special items
 					if not submenu.id_pressed.is_connected(_handle_menu_option_state):
 						submenu.id_pressed.connect(_handle_menu_option_state.bind(submenu, item.get("text", "")))
 					# add submenu
@@ -115,13 +131,12 @@ func _load_main_menu() -> void:
 					new_menu_button.get_popup().add_radio_check_item(item.get("text", ""), item.get("code", -1))
 		# connect menu to handle state function
 		new_menu_button.get_popup().id_pressed.connect(_handle_menu_option_state.bind(new_menu_button.get_popup()))
-		# add new menu
+		# add menu to menus
 		menu_container.add_child(new_menu_button)
-	# add edit mode button
-	edit_mode_node = EDIT_MODE_SCENE.instantiate()
-	menu_container.add_child(edit_mode_node)
 
 
+## This function will recive pressing signals from all items in menu, handle state changing and call
+## [signal SignalBus.script_run] or [signal SignalBus.run_subscript]
 func _handle_menu_option_state(id: int, menu: PopupMenu, rootmenu: String = "") -> void:
 	var index = menu.get_item_index(id)
 	# for checkable options
@@ -132,37 +147,35 @@ func _handle_menu_option_state(id: int, menu: PopupMenu, rootmenu: String = "") 
 		menu.toggle_item_checked(index) # toggle selected option state
 		
 		# search for related radio options and set them to unchecked
-		var check_index = index - 1 # start first search from last option before selected option
+		var check_index = index - 1
 		while true: # options before selected option
-			if check_index < 0: break # break outside of valid options
+			if check_index < 0: break
 			# break when touch an option that isn't radio checkbox
 			if not menu.is_item_radio_checkable(check_index): break
-			menu.set_item_checked(check_index, false) # set option unchecked
-			check_index -= 1 # shift up
-		check_index = index + 1 # start second search from first option after selected option
+			menu.set_item_checked(check_index, false)
+			check_index -= 1
+		check_index = index + 1
 		while true: # options after selected option
-			if check_index + 1 > menu.item_count: break # break outside of valid options
+			if check_index + 1 > menu.item_count: break
 			# break when touch an option that isn't radio checkbox
 			if not menu.is_item_radio_checkable(check_index): break
-			menu.set_item_checked(check_index, false) # set option unchecked
-			check_index += 1 # shift down
+			menu.set_item_checked(check_index, false)
+			check_index += 1
 	
 	if not rootmenu:
-		Signals.script_run.emit(id)
+		Signals.run_script.emit(id)
 	else:
 		Signals.run_subscript.emit(id, menu, rootmenu)
 
 
-func set_edit_mode(index: int) -> void:
-	edit_mode_node.selected = index
-
-
+## Will append a [code]*[/code] to file name to show it was changed.
 func _on_code_edit_text_changed() -> void:
 	if not file_label.text.ends_with("*"):
 		file_label.text += "*"
 
 
-func update_recent_files() -> void:
+## Updates recent files, see [signal SignalBus.update_recent_files]
+func _update_recent_files() -> void:
 	recent_files_submenu.clear()
 	if FileAccess.file_exists(RECENT_FILES_DATA):
 		var file_access = FileAccess.open(RECENT_FILES_DATA, FileAccess.READ)
