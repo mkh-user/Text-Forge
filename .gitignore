@@ -17,5 +17,6 @@ mono_crash.*.json
 
 # Modes dir
 modes/
-/builds
+
+# Intellij
 /.idea
