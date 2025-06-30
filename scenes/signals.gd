@@ -6,25 +6,25 @@ class_name SignalBus
 @warning_ignore_start("unused_signal")
 
 ## Emits when a script run requested, it will send to all scripts and scripts will filter it by [param script_id]
-signal run_script(script_id)
+signal run_script(script_id: int)
 ## Emits when a subscript run requested, it will send to all multi scripts
-signal run_subscript(id, submenu, rootmenu)
+signal run_subscript(id: int, submenu: PopupMenu, rootmenu: String)
 ## Will send to all scripts to check current state with activation state for each script
 signal check_options
 
 ## Requests close file, close script should connect itself to this
 signal close_file
 ## Requests open file, open script should connect itself to this
-signal open_file(path)
+signal open_file(path: String)
 ## Requests create new file, new script should connect itself to this
 signal new_file
 ## Requests saving changes, [param from] will send to savers and return here to emit [signal run_script] again
-signal save_request(from)
+signal save_request(from: int)
 ## Emits when save request finished, signal bus will emit [signal run_script] with [param to] id
-signal save_finished(to)
+signal save_finished(to: int)
 
 ## Emits when user selects a caret (for multi caret edits that have caret selection support)
-signal caret_selected(index)
+signal caret_selected(index: int)
 
 ## Emits when user selects a mode
 signal mode_selected
