@@ -41,18 +41,28 @@ func _ready() -> void:
 		panels[PANEL_BOTTOM].size = spliter_bottom.size.y - offset
 		panels[PANEL_BOTTOM].closed = offset == spliter_bottom.size.y
 	)
-	tab_right.item_selected.connect(_handle_right_panel)
+	tab_left.item_selected.connect(_handle_panel.bind(PANEL_LEFT))
+	tab_right.item_selected.connect(_handle_panel.bind(PANEL_RIGHT))
+	tab_bottom.item_selected.connect(_handle_panel.bind(PANEL_BOTTOM))
 
 
-func _handle_right_panel(selected: int) -> void:
-	if panel_right.current_tab == selected and panels[PANEL_RIGHT].closed == false:
-		panels[PANEL_RIGHT].closed = true
+func _handle_panel(selected: int, panel_id: int) -> void:
+	var current_panel
+	match panel_id:
+		PANEL_LEFT:
+			current_panel = panel_left
+		PANEL_RIGHT:
+			current_panel = panel_right
+		PANEL_BOTTOM:
+			current_panel = panel_bottom
+	if current_panel.current_tab == selected and panels[panel_id].closed == false:
+		panels[panel_id].closed = true
 		_apply_split()
 		return
-	panel_right.current_tab = selected
-	if panels[PANEL_RIGHT].closed == true:
-		panels[PANEL_RIGHT].closed = false
-		if panels[PANEL_RIGHT].size == 0: panels[PANEL_RIGHT].size = 200
+	current_panel.current_tab = selected
+	if panels[panel_id].closed == true:
+		panels[panel_id].closed = false
+		if panels[panel_id].size == 0: panels[panel_id].size = 200
 		_apply_split()
 
 
