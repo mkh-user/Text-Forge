@@ -89,8 +89,6 @@ func _handle_panel(selected: int, panel_id: int) -> void:
 
 
 func _apply_split() -> void:
-	print(panel_left.get_child(panel_left.current_tab).custom_minimum_size.x if panel_left.get_child_count() else 0)
-	#print(max(panels[PANEL_LEFT].size, panel_left.get_child(panel_left.current_tab).custom_minimum_size.x if panel_left.get_child_count() else 0))
 	spliter_left.split_offset = max(panels[PANEL_LEFT].size, panel_left.get_child(panel_left.current_tab).custom_minimum_size.x if panel_left.get_child_count() else 0)
 	if panels[PANEL_LEFT].closed or panel_left.get_child_count() == 0:
 		spliter_left.split_offset = 0
@@ -109,7 +107,6 @@ func _apply_split() -> void:
 		panel_bottom.current_tab = -1
 	else:
 		panel_bottom.current_tab = panels[PANEL_BOTTOM]["last_tab"]
-
 
 
 func _add_panel(location: int, panel: Control, icon: Texture2D) -> void:

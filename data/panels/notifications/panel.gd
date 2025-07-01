@@ -8,7 +8,6 @@ func _ready() -> void:
 
 
 func _editor_notification(type: int, title: String, text: String) -> void:
-	print(visible)
 	var notification_panel: NotificationPanel = ResourceLoader.load("res://data/panels/notifications/notification.tscn").instantiate()
 	notifications.add_child(notification_panel)
 	notifications.move_child(notification_panel, 0)
@@ -24,4 +23,3 @@ func _editor_notification(type: int, title: String, text: String) -> void:
 		notification_panel.text.hide()
 	else:
 		notification_panel.text.text = text
-	print(size)
