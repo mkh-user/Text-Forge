@@ -55,3 +55,7 @@ func get_scripts_node() -> Node:
 ## Returns [EditorAPI] node
 func get_editor_api() -> EditorAPI:
 	return get_editor().get_child(0)
+
+## Return [PanelManager] note
+func get_panel_managet() -> PanelManager:
+	return get_core().panel_manager
