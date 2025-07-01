@@ -136,7 +136,7 @@ func add_panel(location: int, panel: Control, icon: Texture2D) -> void:
 	panels[location].panels[index] = panel
 
 
-func change_panel_icon(location, index, icon: Texture2D) -> void:
+func change_panel_icon(location: int, index: int, icon: Texture2D) -> void:
 	var current_tab: ItemList
 	match location:
 		PANEL_LEFT:
