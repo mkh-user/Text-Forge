@@ -23,3 +23,5 @@ func _editor_notification(type: int, title: String, text: String) -> void:
 		notification_panel.text.hide()
 	else:
 		notification_panel.text.text = text
+	if size.x <= 10:
+		Global.get_panel_manager()
