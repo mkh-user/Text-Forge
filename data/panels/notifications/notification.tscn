@@ -47,6 +47,7 @@ autowrap_mode = 3
 [node name="Text" type="Label" parent="HBox/VBox"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_f20k5")
+autowrap_mode = 3
 
 [node name="Timestamp" type="Label" parent="HBox/VBox"]
 layout_mode = 2
