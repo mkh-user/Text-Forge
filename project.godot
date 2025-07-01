@@ -18,6 +18,7 @@ config/custom_user_dir_name="Text Forge"
 config/auto_accept_quit=false
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 config/icon="uid://c5as0fd5jhnm8"
 
 [autoload]
