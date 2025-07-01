@@ -57,5 +57,5 @@ func get_editor_api() -> EditorAPI:
 	return get_editor().get_child(0)
 
 ## Return [PanelManager] note
-func get_panel_managet() -> PanelManager:
+func get_panel_manager() -> PanelManager:
 	return get_core().panel_manager
