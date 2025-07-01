@@ -65,7 +65,7 @@ func _load_panels() -> void:
 			converted = PANEL_BOTTOM
 		else: # Also panels with invalid place
 			converted = PANEL_LEFT
-		_add_panel(converted, ResourceLoader.load("res://data/panels/{0}/panel.tscn".format([panel])).instantiate(), ResourceLoader.load("res://data/panels/{0}/icon.png".format([panel])))
+		add_panel(converted, ResourceLoader.load("res://data/panels/{0}/panel.tscn".format([panel])).instantiate(), ResourceLoader.load("res://data/panels/{0}/icon.png".format([panel])))
 
 
 func _handle_panel(selected: int, panel_id: int) -> void:
@@ -112,7 +112,7 @@ func _apply_split() -> void:
 		
 
 
-func _add_panel(location: int, panel: Control, icon: Texture2D) -> void:
+func add_panel(location: int, panel: Control, icon: Texture2D) -> void:
 	var current_tab
 	var current_panel
 	match location:
