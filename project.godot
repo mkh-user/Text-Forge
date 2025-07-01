@@ -31,6 +31,7 @@ Global="*res://scenes/global.gd"
 
 [debug]
 
+file_logging/max_log_files=200
 gdscript/warnings/narrowing_conversion=0
 
 [display]
