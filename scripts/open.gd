@@ -18,7 +18,7 @@ func _run_action() -> void:
 
 func _open_file(path: String) -> void:
 	if not FileAccess.file_exists(path):
-		SLib.send_alert("Can't find this file!")
+		Signals.editor_notification.emit(2, "Can't find this file!", "")
 		return
 	Global.set_file_name(path.get_file())
 	Global.set_file_path(path)

@@ -23,11 +23,11 @@ func _ready() -> void:
 ## Will send auto format command to correct mode
 func auto_format(path: String) -> void:
 	if path == "Unsaved":
-		SLib.send_alert("Please save file before auto formatting")
+		Signals.editor_notification.emit(2, "Please save file before auto formatting", "")
 		return
 	var available_modes := _get_available_modes(path.get_extension())
 	if available_modes.size() == 0:
-		SLib.send_alert("Can't find any mode for auto format this file!")
+		Signals.editor_notification.emit(2, "Can't find any mode for auto format this file!", "You can find more modes in Help > Mode Library")
 		current_mode = {}
 		return
 	if current_mode in available_modes:
@@ -56,7 +56,7 @@ func _auto_format(script: GDScript) -> void:
 func save_file(path: String) -> void:
 	var available_modes := _get_available_modes(path.get_extension())
 	if available_modes.size() == 0:
-		SLib.send_alert("Can't find any mode to save this file, save file using UTF-8...")
+		Signals.editor_notification.emit(1, "Can't find any mode to save this file", "save file using UTF-8...")
 		current_mode = {}
 		var file = FileAccess.open(path, FileAccess.WRITE)
 		file.store_string(Global.get_editor_text())
@@ -84,7 +84,7 @@ func save_file(path: String) -> void:
 func load_file(path: String) -> void:
 	var available_modes := _get_available_modes(path.get_extension())
 	if available_modes.size() == 0:
-		SLib.send_alert("Can't find any mode to open this file, loading file using UTF-8...")
+		Signals.editor_notification.emit(1, "Can't find any mode to open this file", "loading file using UTF-8...")
 		current_mode = {}
 		var file = FileAccess.open(path, FileAccess.READ)
 		Global.set_editor_disabled(false)

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://dnvygvv1c55qb"]
+[gd_resource type="Theme" load_steps=28 format=3 uid="uid://dnvygvv1c55qb"]
 
 [ext_resource type="FontFile" uid="uid://d03vkdeo2egtn" path="res://assets/JetBrainsMono-Regular.ttf" id="1_qjhx0"]
 [ext_resource type="Texture2D" uid="uid://bwarwcjjx7it3" path="res://assets/active.png" id="2_u427p"]
@@ -107,6 +107,17 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ahyh"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.11834, 0.167543, 0.216756, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sugp2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jyhfs"]
@@ -160,6 +171,7 @@ MarginContainer/constants/margin_bottom = 5
 MarginContainer/constants/margin_left = 5
 MarginContainer/constants/margin_right = 5
 MarginContainer/constants/margin_top = 5
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_0ahyh")
 PopupMenu/colors/font_accelerator_color = Color(0.701961, 0.701961, 0.701961, 0.392157)
 PopupMenu/constants/item_end_padding = 10
 PopupMenu/constants/item_start_padding = 5

@@ -2,8 +2,8 @@ extends MultiActionScript
 
 func _run_action(item_id, popup) -> void:
 	if Global.get_file_name().ends_with("*"):
-		SLib.send_alert("You will recive an alert for close currently opened file, please run this action again after save or discard your changes.
-(Auto save request for recent files isn't available now)")
+		Signals.editor_notification.emit(0, "Please do this action again", "You have unsaved changes, But there isn's support for load recent files after save/discad changes.")
+		await SLib.wait(1)
 		Signals.close_file.emit()
 		return
 	Signals.open_file.emit(popup.get_item_text(popup.get_item_index(item_id)))

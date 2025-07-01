@@ -15,6 +15,10 @@ signal check_options
 ## Standard way to send notifications between modules
 signal notification(id: String, data: Array)
 
+## Standard notifications from editor
+## Type: 0 -> info/message, 1 -> warning, 2 -> error
+signal editor_notification(type: int, title: String, text: String)
+
 ## Requests close file, close script should connect itself to this
 signal close_file
 ## Requests open file, open script should connect itself to this
