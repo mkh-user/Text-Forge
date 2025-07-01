@@ -1,7 +1,9 @@
 extends Control
 
-@export var panels: Container
+@export var options: Container
 @export var notifications: Container
+
+var index: int
 
 func _ready() -> void:
 	Signals.editor_notification.connect(_editor_notification)
@@ -23,5 +25,15 @@ func _editor_notification(type: int, title: String, text: String) -> void:
 		notification_panel.text.hide()
 	else:
 		notification_panel.text.text = text
-	if size.x <= 10:
-		Global.get_panel_manager()
+	print(size)
+	if get_parent().current_tab != index:
+		Global.get_panel_manager().change_panel_icon(PanelManager.PANEL_RIGHT, index, ResourceLoader.load("res://data/panels/notifications/notification.png"))
+
+
+func _on_item_rect_changed() -> void:
+	if get_parent().current_tab == index:
+		Global.get_panel_manager().change_panel_icon(PanelManager.PANEL_RIGHT, index, ResourceLoader.load("res://data/panels/notifications/icon.png"))
+
+
+func _on_clear_pressed() -> void:
+	SLib.free_all_children(notifications)

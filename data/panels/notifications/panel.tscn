@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciui3reccbsvh"]
+[gd_scene load_steps=4 format=3 uid="uid://ciui3reccbsvh"]
 
 [ext_resource type="Script" uid="uid://bmnesjreymjuh" path="res://data/panels/notifications/panel.gd" id="1_fan4o"]
 [ext_resource type="Theme" uid="uid://dnvygvv1c55qb" path="res://resources/main_theme.tres" id="1_r108h"]
+[ext_resource type="Texture2D" uid="uid://8aprog837rdr" path="res://data/panels/notifications/clear.png" id="3_58sq7"]
 
-[node name="Panel" type="Control" node_paths=PackedStringArray("panels", "notifications")]
+[node name="Panel" type="Control" node_paths=PackedStringArray("options", "notifications")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 3
 anchors_preset = 15
@@ -13,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_r108h")
 script = ExtResource("1_fan4o")
-panels = NodePath("MarginContainer/VBoxContainer/HBoxContainer")
+options = NodePath("MarginContainer/VBoxContainer/HBoxContainer")
 notifications = NodePath("MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -30,9 +31,12 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="clear" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-text = "Test"
+icon = ExtResource("3_58sq7")
+icon_alignment = 1
+expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -42,3 +46,6 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/clear" to="." method="_on_clear_pressed"]
