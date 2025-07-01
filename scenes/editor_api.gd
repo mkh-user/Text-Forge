@@ -23,7 +23,7 @@ func _ready() -> void:
 ## Will send auto format command to correct mode
 func auto_format(path: String) -> void:
 	if path == "Unsaved":
-		SLib.send_alert("Please save file before auto formatting")
+		Signals.editor_notification.emit(2, "Please save file before auto formatting", "")
 		return
 	var available_modes := _get_available_modes(path.get_extension())
 	if available_modes.size() == 0:
