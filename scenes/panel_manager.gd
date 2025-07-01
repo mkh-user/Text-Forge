@@ -146,3 +146,8 @@ func change_panel_icon(location: int, index: int, icon: Texture2D) -> void:
 		PANEL_BOTTOM:
 			current_tab = tab_bottom
 	current_tab.set_item_icon(index, icon)
+
+
+func show_panel(location: int, index: int) -> void:
+	if panels[location]["closed"] or panels[location]["last_tab"] != index:
+		_handle_panel(index, location)
