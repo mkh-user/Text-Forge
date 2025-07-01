@@ -1,0 +1,33 @@
+; Text Forge Project File
+
+[ project ]
+
+name = "Template"
+details = "Template project file for Text Forge"
+icon = ""
+tags = []
+created = "2025-07-01"
+modified = "2025-07-01"
+
+[ editor ]
+
+modifier = "TFPM-01"
+custom_action_scripts = ""
+custom_modes = ""
+
+[ files ]
+
+open_file = ""
+caret_line = 0
+caret_column = 0
+include = []
+exclude = []
+recent_files = []
+
+[ extensions_status ]
+
+git = false
+
+[ metadata ]
+
+editor_version = ""
