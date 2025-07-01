@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d0j1s4uv04c3w" path="res://scenes/editor_api.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dtusvq1vqt0ul" path="res://scenes/editor.gd" id="7_tipki"]
 
-[node name="Main" type="Control" node_paths=PackedStringArray("menu_container", "file_label", "editor", "scripts")]
+[node name="Main" type="Control" node_paths=PackedStringArray("menu_container", "file_label", "editor", "scripts", "panel_manager")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ menu_container = NodePath("Margin/Sections/Menus")
 file_label = NodePath("Margin/Sections/FileLabel")
 editor = NodePath("Margin/Sections/PanelManager/LeftSpliter/RightSpliter/BottomSpliter/Editor")
 scripts = NodePath("Scripts")
+panel_manager = NodePath("Margin/Sections/PanelManager")
 
 [node name="Back" type="ColorRect" parent="."]
 layout_mode = 1
@@ -78,6 +79,7 @@ size_flags_vertical = 3
 [node name="LeftPanel" type="TabContainer" parent="Margin/Sections/PanelManager/LeftSpliter"]
 layout_mode = 2
 tabs_visible = false
+deselect_enabled = true
 
 [node name="RightSpliter" type="HSplitContainer" parent="Margin/Sections/PanelManager/LeftSpliter"]
 layout_mode = 2
@@ -107,10 +109,12 @@ script = ExtResource("6_tefeu")
 layout_mode = 2
 size_flags_vertical = 3
 tabs_visible = false
+deselect_enabled = true
 
 [node name="RightPanel" type="TabContainer" parent="Margin/Sections/PanelManager/LeftSpliter/RightSpliter"]
 layout_mode = 2
 tabs_visible = false
+deselect_enabled = true
 
 [node name="RightTab" type="ItemList" parent="Margin/Sections/PanelManager"]
 custom_minimum_size = Vector2(46, 0)

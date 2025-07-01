@@ -15,6 +15,8 @@ class_name Core
 @export var editor: CodeEdit
 ## Scripts Node, will keep action scripts separated from core logic
 @export var scripts: Control
+## [PanelManager] node
+@export var panel_manager: PanelManager
 
 ## Saved scene for menus like "File" and "Edit", see also [member menu_container]
 const MENU_BUTTON_SCENE := preload("res://scenes/menu/menu_button.tscn")
