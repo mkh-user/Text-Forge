@@ -127,6 +127,7 @@ func _add_panel(location: int, panel: Control, icon: Texture2D) -> void:
 			current_panel = panel_bottom
 	var index
 	index = current_tab.add_icon_item(icon)
+	panel.index = index
 	if index != current_panel.get_child_count():
 		current_tab.remove_item(index)
 		push_error("There is a bug in left panel")
