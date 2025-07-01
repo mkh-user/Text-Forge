@@ -65,7 +65,7 @@ func _load_panels() -> void:
 			converted = PANEL_BOTTOM
 		else: # Also panels with invalid place
 			converted = PANEL_LEFT
-		_add_panel(converted, ResourceLoader.load("res://data/panels/{0}/panel.tscn".format([panel])).instantiate(), ResourceLoader.load("res://data/panels/{0}/icon.png".format([panel])))
+		add_panel(converted, ResourceLoader.load("res://data/panels/{0}/panel.tscn".format([panel])).instantiate(), ResourceLoader.load("res://data/panels/{0}/icon.png".format([panel])))
 
 
 func _handle_panel(selected: int, panel_id: int) -> void:
@@ -109,7 +109,7 @@ func _apply_split() -> void:
 		panel_bottom.current_tab = panels[PANEL_BOTTOM]["last_tab"]
 
 
-func _add_panel(location: int, panel: Control, icon: Texture2D) -> void:
+func add_panel(location: int, panel: Control, icon: Texture2D) -> void:
 	var current_tab
 	var current_panel
 	match location:
@@ -124,6 +124,7 @@ func _add_panel(location: int, panel: Control, icon: Texture2D) -> void:
 			current_panel = panel_bottom
 	var index
 	index = current_tab.add_icon_item(icon)
+	panel.index = index
 	if index != current_panel.get_child_count():
 		current_tab.remove_item(index)
 		Signals.editor_notification.emit(2, "There is a bug in left panel", "")
@@ -132,7 +133,7 @@ func _add_panel(location: int, panel: Control, icon: Texture2D) -> void:
 	panels[location].panels[index] = panel
 
 
-func change_panel_icon(location, index, icon: Texture2D) -> void:
+func change_panel_icon(location: int, index: int, icon: Texture2D) -> void:
 	var current_tab: ItemList
 	match location:
 		PANEL_LEFT:
@@ -142,3 +143,8 @@ func change_panel_icon(location, index, icon: Texture2D) -> void:
 		PANEL_BOTTOM:
 			current_tab = tab_bottom
 	current_tab.set_item_icon(index, icon)
+
+
+func show_panel(location: int, index: int) -> void:
+	if panels[location]["closed"] or panels[location]["last_tab"] != index:
+		_handle_panel(index, location)
