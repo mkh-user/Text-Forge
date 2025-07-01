@@ -2,8 +2,11 @@ extends Control
 
 @export var options: Container
 @export var notifications: Container
+@export var mute_bottom: Button
 
 var index: int
+
+var mute: bool = false
 
 func _ready() -> void:
 	Signals.editor_notification.connect(_editor_notification)
@@ -25,9 +28,10 @@ func _editor_notification(type: int, title: String, text: String) -> void:
 		notification_panel.text.hide()
 	else:
 		notification_panel.text.text = text
-	print(size)
 	if get_parent().current_tab != index:
 		Global.get_panel_manager().change_panel_icon(PanelManager.PANEL_RIGHT, index, ResourceLoader.load("res://data/panels/notifications/notification.png"))
+	if not mute:
+		Global.get_panel_manager().show_panel(PanelManager.PANEL_RIGHT, index)
 
 
 func _on_item_rect_changed() -> void:
@@ -37,3 +41,11 @@ func _on_item_rect_changed() -> void:
 
 func _on_clear_pressed() -> void:
 	SLib.free_all_children(notifications)
+
+
+func _on_mute_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		mute_bottom.icon = ResourceLoader.load("res://data/panels/notifications/mute.png")
+	else:
+		mute_bottom.icon = ResourceLoader.load("res://data/panels/notifications/icon.png")
+	mute = toggled_on
