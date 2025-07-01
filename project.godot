@@ -28,6 +28,7 @@ ExtensionCore="*res://scenes/extension_core/extension_core.gd"
 Signals="*res://scenes/signals.gd"
 SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
 Global="*res://scenes/global.gd"
+ExtensionHub="*res://scenes/extension_core/extension_hub.gd"
 
 [debug]
 
