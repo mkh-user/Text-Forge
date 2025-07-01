@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx1alvj3tjt16"]
+[gd_scene load_steps=5 format=3 uid="uid://dx1alvj3tjt16"]
 
 [ext_resource type="Script" uid="uid://byayvu15ojy1j" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dfy2sbtb4i0ht" path="res://scenes/panel_manager.gd" id="2_tefeu"]
 [ext_resource type="Script" uid="uid://d0j1s4uv04c3w" path="res://scenes/editor_api.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dtusvq1vqt0ul" path="res://scenes/editor.gd" id="7_tipki"]
 
-[node name="Main" type="Control" node_paths=PackedStringArray("menu_container", "file_label", "editor", "scripts")]
+[node name="Main" type="Control" node_paths=PackedStringArray("menu_container", "file_label", "editor", "scripts", "panel_manager")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,8 +15,9 @@ grow_vertical = 2
 script = ExtResource("1_o5qli")
 menu_container = NodePath("Margin/Sections/Menus")
 file_label = NodePath("Margin/Sections/FileLabel")
-editor = NodePath("Margin/Sections/Editor")
+editor = NodePath("Margin/Sections/PanelManager/LeftSpliter/RightSpliter/BottomSpliter/Editor")
 scripts = NodePath("Scripts")
+panel_manager = NodePath("Margin/Sections/PanelManager")
 
 [node name="Back" type="ColorRect" parent="."]
 layout_mode = 1
@@ -46,9 +48,49 @@ mouse_filter = 1
 text = "There is no opened file"
 text_overrun_behavior = 4
 
-[node name="Editor" type="CodeEdit" parent="Margin/Sections"]
+[node name="PanelManager" type="HBoxContainer" parent="Margin/Sections" node_paths=PackedStringArray("tab_left", "tab_right", "tab_bottom", "spliter_left", "spliter_right", "spliter_bottom", "panel_left", "panel_right", "panel_bottom")]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("2_tefeu")
+tab_left = NodePath("LeftTab")
+tab_right = NodePath("RightTab")
+tab_bottom = NodePath("../BottomTab")
+spliter_left = NodePath("LeftSpliter")
+spliter_right = NodePath("LeftSpliter/RightSpliter")
+spliter_bottom = NodePath("LeftSpliter/RightSpliter/BottomSpliter")
+panel_left = NodePath("LeftSpliter/LeftPanel")
+panel_right = NodePath("LeftSpliter/RightSpliter/RightPanel")
+panel_bottom = NodePath("LeftSpliter/RightSpliter/BottomSpliter/BottomPanel")
+
+[node name="LeftTab" type="ItemList" parent="Margin/Sections/PanelManager"]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+allow_reselect = true
+allow_search = false
+fixed_column_width = 35
+icon_mode = 0
+fixed_icon_size = Vector2i(20, 35)
+
+[node name="LeftSpliter" type="HSplitContainer" parent="Margin/Sections/PanelManager"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LeftPanel" type="TabContainer" parent="Margin/Sections/PanelManager/LeftSpliter"]
+layout_mode = 2
+tabs_visible = false
+deselect_enabled = true
+
+[node name="RightSpliter" type="HSplitContainer" parent="Margin/Sections/PanelManager/LeftSpliter"]
+layout_mode = 2
+split_offset = 20000
+
+[node name="BottomSpliter" type="VSplitContainer" parent="Margin/Sections/PanelManager/LeftSpliter/RightSpliter"]
+layout_mode = 2
+split_offset = 1000
+
+[node name="Editor" type="CodeEdit" parent="Margin/Sections/PanelManager/LeftSpliter/RightSpliter/BottomSpliter"]
+layout_mode = 2
 editable = false
 scroll_smooth = true
 symbol_lookup_on_click = true
@@ -58,13 +100,43 @@ gutters_draw_line_numbers = true
 gutters_draw_fold_gutter = true
 script = ExtResource("7_tipki")
 
-[node name="API" type="Control" parent="Margin/Sections/Editor"]
+[node name="API" type="Control" parent="Margin/Sections/PanelManager/LeftSpliter/RightSpliter/BottomSpliter/Editor"]
 layout_mode = 1
 anchors_preset = 0
 script = ExtResource("6_tefeu")
+
+[node name="BottomPanel" type="TabContainer" parent="Margin/Sections/PanelManager/LeftSpliter/RightSpliter/BottomSpliter"]
+layout_mode = 2
+size_flags_vertical = 3
+tabs_visible = false
+deselect_enabled = true
+
+[node name="RightPanel" type="TabContainer" parent="Margin/Sections/PanelManager/LeftSpliter/RightSpliter"]
+layout_mode = 2
+tabs_visible = false
+deselect_enabled = true
+
+[node name="RightTab" type="ItemList" parent="Margin/Sections/PanelManager"]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+allow_reselect = true
+allow_search = false
+fixed_column_width = 35
+icon_mode = 0
+fixed_icon_size = Vector2i(20, 35)
+
+[node name="BottomTab" type="ItemList" parent="Margin/Sections"]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+allow_reselect = true
+allow_search = false
+max_columns = 0
+fixed_column_width = 35
+icon_mode = 0
+fixed_icon_size = Vector2i(20, 20)
 
 [node name="Scripts" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 0
 
-[connection signal="text_changed" from="Margin/Sections/Editor" to="." method="_on_code_edit_text_changed"]
+[connection signal="text_changed" from="Margin/Sections/PanelManager/LeftSpliter/RightSpliter/BottomSpliter/Editor" to="." method="_on_code_edit_text_changed"]
