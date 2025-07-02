@@ -47,7 +47,7 @@ func _ready() -> void:
 
 
 func _handle_save_request(from: int) -> void:
-	var save_popup: ConfirmationDialog = preload("res://scenes/popups/save_changes_dialog.tscn").instantiate()
+	var save_popup: ConfirmationDialog = preload("res://core/popups/save_changes_dialog.tscn").instantiate()
 	save_popup.confirmed.connect(_save_changes.bind(from))
 	save_popup.canceled.connect(_resume_after_save.bind(from))
 	save_popup.confirmed.connect(save_popup.queue_free)

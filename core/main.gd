@@ -19,7 +19,7 @@ class_name Core
 @export var panel_manager: PanelManager
 
 ## Saved scene for menus like "File" and "Edit", see also [member menu_container]
-const MENU_BUTTON_SCENE := preload("res://scenes/menu/menu_button.tscn")
+const MENU_BUTTON_SCENE := preload("res://core/menu/menu_button.tscn")
 ## Path to UI configurations
 const MAIN_UI_DATA := "res://data/main_ui.ini"
 ## Recent files log file

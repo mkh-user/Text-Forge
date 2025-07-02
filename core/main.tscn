@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dx1alvj3tjt16"]
 
-[ext_resource type="Script" uid="uid://byayvu15ojy1j" path="res://scenes/main.gd" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://dfy2sbtb4i0ht" path="res://scenes/panel_manager.gd" id="2_tefeu"]
-[ext_resource type="Script" uid="uid://d0j1s4uv04c3w" path="res://scenes/editor_api.gd" id="6_tefeu"]
-[ext_resource type="Script" uid="uid://dtusvq1vqt0ul" path="res://scenes/editor.gd" id="7_tipki"]
+[ext_resource type="Script" uid="uid://byayvu15ojy1j" path="res://core/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dfy2sbtb4i0ht" path="res://core/panel_manager.gd" id="2_tefeu"]
+[ext_resource type="Script" uid="uid://d0j1s4uv04c3w" path="res://core/editor_api.gd" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://dtusvq1vqt0ul" path="res://core/editor.gd" id="7_tipki"]
 
 [node name="Main" type="Control" node_paths=PackedStringArray("menu_container", "file_label", "editor", "scripts", "panel_manager")]
 layout_mode = 3
