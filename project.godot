@@ -24,11 +24,11 @@ config/icon="uid://c5as0fd5jhnm8"
 [autoload]
 
 SLib="*res://addons/SLib/SLib.gd"
-ExtensionCore="*res://scenes/extension_core/extension_core.gd"
-Signals="*res://scenes/signals.gd"
+ExtensionCore="*res://core/extension_core/extension_core.gd"
+Signals="*res://core/signals.gd"
 SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
-Global="*res://scenes/global.gd"
-ExtensionHub="*res://scenes/extension_core/extension_hub.gd"
+Global="*res://core/global.gd"
+ExtensionHub="*res://core/extension_core/extension_hub.gd"
 
 [debug]
 
