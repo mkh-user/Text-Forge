@@ -51,10 +51,10 @@ func _load_scripts() -> void:
 				if item.has("popup") and item.get("type", 0) != 1: item.get("popup").set_item_disabled(item.get("popup").get_item_index(item.get("code", 0)), true)
 				continue
 			var script = load("res://scripts/" + item.get("text", "").to_snake_case().replace(".", "") + ".gd").new()
-			if item.get("type", 0) == 0:
-				Signals.run_script.connect(script.run)
-			elif item.get("type", 0) == 1:
+			if item.get("type", 0) == 1:
 				Signals.run_subscript.connect(script.run)
+			else:
+				Signals.run_script.connect(script.run)
 			Signals.check_options.connect(script._check_option)
 			script.id = item.get("code", -1)
 			script.menu = item.get("popup")
