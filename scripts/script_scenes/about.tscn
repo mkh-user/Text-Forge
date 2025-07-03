@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6n3ouf8djibh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tusby"]
+bg_color = Color(0.0625005, 0.0961309, 0.129758, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="About" type="Window"]
+title = "About Text Forge"
+initial_position = 2
+size = Vector2i(500, 400)
+min_size = Vector2i(500, 400)
+keep_title_visible = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11834, 0.167543, 0.216756, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tusby")
+current_tab = 2
+
+[node name="About" type="MarginContainer" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer/TabContainer/About"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=24]Text Forge[/font_size]
+[font_size=15][color=darkgray]V0.2-Stable[/color][/font_size]
+
+A highly modular and extendable open-source code editor.
+Based on:
+ - lightweight design			- extensiblity
+ - mode-drive design			- customizablity
+ - scriptable design				- language agnostic design
+ - data-driven interface		- object-oriented design
+ - plug-and-play extension architecture"
+
+[node name="Authors" type="MarginContainer" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/Authors"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Project Founder[/b]
+Mahan Khalili (mkh-user)
+[b]Lead Developer[/b]
+Mahan Khalili (mkh-user)"
+
+[node name="License" type="MarginContainer" parent="MarginContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer/TabContainer/License"]
+layout_mode = 2
+text = "MIT License
+
+Copyright (c) 2025 Mahan Khalili and contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+
+[node name="Third-party Licenses" type="MarginContainer" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Text" type="RichTextLabel" parent="MarginContainer/TabContainer/Third-party Licenses"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Icons:[/b]
+		Main UI: MIT 2025 by Mahan Khalili
+
+[i]See [code]\"root/modes/\"[/code], [code]\"root/scripts/\"[/code], [code]\"userdata/extensions\"[/code] for other licenses. Modes, scripts and extensions without LICENSE file are onder Text Forge license."

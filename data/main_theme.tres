@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=28 format=3 uid="uid://dnvygvv1c55qb"]
+[gd_resource type="Theme" load_steps=32 format=3 uid="uid://dnvygvv1c55qb"]
 
 [ext_resource type="FontFile" uid="uid://d03vkdeo2egtn" path="res://assets/JetBrainsMono-Regular.ttf" id="1_qjhx0"]
 [ext_resource type="Texture2D" uid="uid://bwarwcjjx7it3" path="res://assets/active.png" id="2_u427p"]
@@ -145,6 +145,27 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ojjt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amhry"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.0823529, 0.121569, 0.160784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ojjt"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.0625005, 0.0961309, 0.129758, 1)
+border_width_top = 3
+border_color = Color(0.358444, 0.450697, 0.542969, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okkhu"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.11834, 0.167543, 0.216756, 1)
+border_width_top = 3
+border_color = Color(0.11834, 0.167543, 0.216756, 1)
+
 [resource]
 AcceptDialog/styles/panel = SubResource("StyleBoxFlat_x6qos")
 Button/styles/focus = SubResource("StyleBoxFlat_qjhx0")
@@ -189,5 +210,16 @@ PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxFlat_0wfyh")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_0wfyh")
 PopupMenu/styles/separator = SubResource("StyleBoxLine_0wfyh")
 PopupPanel/styles/panel = SubResource("StyleBoxFlat_0wfyh")
+RichTextLabel/font_sizes/bold_font_size = 14
+RichTextLabel/font_sizes/bold_italics_font_size = 14
+RichTextLabel/font_sizes/italics_font_size = 14
+RichTextLabel/font_sizes/mono_font_size = 14
+RichTextLabel/font_sizes/normal_font_size = 14
+RichTextLabel/fonts/mono_font = ExtResource("1_qjhx0")
 SplitContainer/constants/separation = 0
+TabContainer/constants/side_margin = 0
 TabContainer/styles/panel = SubResource("StyleBoxFlat_hofdy")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_1ojjt")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_amhry")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_1ojjt")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_okkhu")
