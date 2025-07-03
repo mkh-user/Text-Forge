@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3kfuyvrgx4tk"]
-
-[ext_resource type="Script" uid="uid://cc3jmmtbqod5a" path="res://scenes/data_manager.gd" id="1_43pbl"]
-
-[node name="Data Manager" type="Node"]
-script = ExtResource("1_43pbl")
