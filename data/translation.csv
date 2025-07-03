@@ -1,147 +1,147 @@
-key,en
-menu.file,File
-menu.file.new,New
-menu.file.new_with_template,New With Template
-menu.file.open,Open...
-menu.file.recent_files,Recent Files
-menu.file.save,Save
-menu.file.save_as,Save As...
-menu.file.reload,Reload
-menu.file.close,Close
-menu.file.backup_create,Create Backup...
-menu.file.backup_load,Load From Backup...
-menu.file.copy_path,Copy Path
-menu.file.show_in_filesystem,Show In FileSystem
-menu.file.version_history,Version History...
-menu.file.merge_with,Merge With...
-menu.file.compare_with,Compare With...
-menu.file.storage_management,Storage Management...
-menu.file.secure_delete,Secure Delete
-menu.file.exit,Exit
-menu.edit,Edit
-menu.edit.undo,Undo
-menu.edit.redo,Redo
-menu.edit.cut,Cut
-menu.edit.copy,Copy
-menu.edit.paste,Paste
-menu.edit.delete,Delete
-menu.edit.select_all,Select All
-menu.edit.duplicate_selection,Duplicate Selection
-menu.edit.evulate_selection,Evulate Selection
-menu.edit.line,Line
-menu.edit.line.move_up,Move Lines Up
-menu.edit.line.move_down,Move Lines Down
-menu.edit.line.indent,Indent
-menu.edit.line.unindent,Unindent
-menu.edit.line.delete,Delete Lines
-menu.edit.line.toggle_comment,Toggle Comment
-menu.edit.line.duplicate,Duplicate Lines
-menu.edit.line.select_whole,Select Whole Line
-menu.edit.line.select_paragraph,Select Paragraph
-menu.edit.line.join,Join Lines
-menu.edit.line.move_to_new_file,Move To New File
-menu.edit.completion_query,Completion Query
-menu.edit.auto_format,Auto Format
-menu.edit.indention,Indention
-menu.edit.indention.to_spaces,Convert Indent To Spaces
-menu.edit.indention.to_tabs,Convert Indent To Tabs
-menu.edit.convert_case,Convert Case
-menu.edit.convert_case.upper,UPPER
-menu.edit.convert_case.lower,lower
-menu.edit.convert_case.capitalize,Capitalize
-menu.edit.convert_case.camel,camelCase
-menu.edit.convert_case.pascal,PascalCase
-menu.edit.convert_case.snake,snake_case
-menu.search,Search
-menu.search.find,Find...
-menu.search.find_next,Find Next
-menu.search.find_prev,Find Previous
-menu.search.replace,Replace...
-menu.search.replace_all,Replace All
-menu.search.find_in_files,Find In Files...
-menu.search.replace_in_files,Replace In Files...
-menu.search.find_usages,Find Usages
-menu.go_to,Go To
-menu.go_to.line,Go To Line...
-menu.go_to.code_regions,Code Regions...
-menu.go_to.insert_nav_mark,Insert Navigation Mark
-menu.go_to.nav_marks,Navigation Marks...
-menu.go_to.table_of_contents,Table Of Contents...
-menu.go_to.bookmarks,Bookmarks...
-menu.go_to.toggle_bookmark,Toggle Bookmark
-menu.go_to.remove_all_bookmarks,Remove All Bookmarks
-menu.go_to.breakpoints,Breakpoints...
-menu.go_to.toggle_breakpoint,Toggle Breakpoint
-menu.go_to.remove_all_breakpoints,Remove All Breakpoints
-menu.command,Command
-menu.command.remove_all_indents,Remove All Indents
-menu.command.palette,Command Pallete...
-menu.format,Format
-menu.format.auto_indention,Auto Indention
-menu.format.save_as_template,Save As Template...
-menu.format.templates,Templates...
-menu.insert,Insert
-menu.insert.bookmark,Bookmark
-menu.insert.breakpoint,Breakpoint
-menu.insert.change_log,Change Log
-menu.insert.license,License
-menu.insert.footnote,Footnote
-menu.insert.header,Header
-menu.insert.code_region,Code Region
-menu.insert.time,Time
-menu.insert.date,Date
-menu.insert.signature,Signature
-menu.view,View
-menu.view.increase_font,Increase Font Size
-menu.view.reduce_font,Reduce Font Size
-menu.view.reset_font,Reset Font Size
-menu.view.toggle_dark_mode,Toggle Dark Mode
-menu.view.notes_panel,Notes Panel
-menu.view.changelog_panel,Change Log Panel
-menu.view.line_length_guides,Line Lenght Guids...
-menu.view.show_breakpoints,Show Breakpoints
-menu.view.show_bookmarks,Show Bookmarks
-menu.view.show_line_numbers,Show Line Numbers
-menu.view.show_fold_gutter,Show Fold Gutter
-menu.view.show_minimap,Show Minimap
-menu.view.block_caret,Block Type Caret
-menu.view.highlight_occurrences,Highlight All Occurrences
-menu.view.highlight_current_line,Highlight Current Line
-menu.view.show_control_chars,Show Control Characters
-menu.view.show_tabs,Show Tabs
-menu.view.show_spaces,Show Spaces
-menu.view.syntax_highlighter,Syntax Highlighter...
-menu.view.normal_view,Normal View
-menu.view.presentation_view,Presentation View
-menu.view.reading_view,Reading View
-menu.view.full_screen,Full Screen
-menu.tools,Tools
-menu.tools.spell_check,Spell Check
-menu.tools.color_picker,Color Picker
-menu.tools.security,Security...
-menu.tools.counter,Counter...
-menu.tools.translation,Translation...
-menu.tools.clipboard_history,Clipboard History
-menu.tools.function_creator,Function Creator...
-menu.tools.documentation,Documentation...
-menu.tools.auto_completion,Auto Completion...
-menu.tools.time_management,Time Management...
-menu.tools.calendar,Calendar
-menu.tools.extensions,Extensions
-menu.tools.signature,Signature...
-menu.tools.date_time,Date & Time...
-menu.tools.macros,Macros...
-menu.tools.auto_backup,Auto Backup...
-menu.settings,Settings
-menu.settings.preferences,Preferences...
-menu.settings.extensions,Extensions...
-menu.settings.indents,Indents...
-menu.settings.tools,Tools
-menu.help,Help
-menu.help.github,GitHub Repository
-menu.help.mode_library,Mode Library
-menu.help.forum,Forum
-menu.help.feedback,Share Feedback
-menu.help.submit_issue,Submit issue
-menu.help.docs,Online Docs
-menu.help.about,About
+﻿key,en,fa
+menu.file,File,فایل
+menu.file.new,New,جدید
+menu.file.new_with_template,New With Template,جدید با قابل
+menu.file.open,Open...,بازکردن...
+menu.file.recent_files,Recent Files,فایل های اخیر
+menu.file.save,Save,ذخیره
+menu.file.save_as,Save As...,ذخیره به عنوان...
+menu.file.reload,Reload,بارگذاری مجدد
+menu.file.close,Close,بستن
+menu.file.backup_create,Create Backup...,ایجاد پشتیبان...
+menu.file.backup_load,Load From Backup...,بارگذاری از پشتیبان...
+menu.file.copy_path,Copy Path,رونوشت مسیر
+menu.file.show_in_filesystem,Show In FileSystem,نمایش در فایل ها
+menu.file.version_history,Version History...,تاریخچه نسخه...
+menu.file.merge_with,Merge With...,ادغام با...
+menu.file.compare_with,Compare With...,مقایسه با...
+menu.file.storage_management,Storage Management...,مدیریت فضای ذخیره سازی...
+menu.file.secure_delete,Secure Delete,حذف امن
+menu.file.exit,Exit,خروج
+menu.edit,Edit,ویرایش
+menu.edit.undo,Undo,لغو عمل
+menu.edit.redo,Redo,بازگردادن عمل
+menu.edit.cut,Cut,برش
+menu.edit.copy,Copy,رونوشت
+menu.edit.paste,Paste,جایگذاری
+menu.edit.delete,Delete,حذف
+menu.edit.select_all,Select All,انتخاب همه
+menu.edit.duplicate_selection,Duplicate Selection,تکثیر انتخاب شده
+menu.edit.evulate_selection,Evulate Selection,محاسبه انتخاب شده
+menu.edit.line,Line,خط
+menu.edit.line.move_up,Move Lines Up,انتقال به بالا
+menu.edit.line.move_down,Move Lines Down,انتقال به پایین
+menu.edit.line.indent,Indent,ایجاد فرورفتگی
+menu.edit.line.unindent,Unindent,حذف فرورفتگی
+menu.edit.line.delete,Delete Lines,حذف خطوط
+menu.edit.line.toggle_comment,Toggle Comment,تغییر کامنت گذاری
+menu.edit.line.duplicate,Duplicate Lines,تکثیر خطوط
+menu.edit.line.select_whole,Select Whole Line,انتخاب کل خط
+menu.edit.line.select_paragraph,Select Paragraph,انتخاب بند
+menu.edit.line.join,Join Lines,ادغام خطوط
+menu.edit.line.move_to_new_file,Move To New File,انتقال به فایل جدید
+menu.edit.completion_query,Completion Query,درخواست تکمیل
+menu.edit.auto_format,Auto Format,قالب بندی خودکار
+menu.edit.indention,Indention,فرورفتگی
+menu.edit.indention.to_spaces,Convert Indent To Spaces,تبدیل فرورفتگی به فاصله
+menu.edit.indention.to_tabs,Convert Indent To Tabs,تبدیل فرورفتگی به تب
+menu.edit.convert_case,Convert Case,تبدیل حروف
+menu.edit.convert_case.upper,UPPER,UPPER
+menu.edit.convert_case.lower,lower,lower
+menu.edit.convert_case.capitalize,Capitalize,Capitalize
+menu.edit.convert_case.camel,camelCase,camelCase
+menu.edit.convert_case.pascal,PascalCase,PascalCase
+menu.edit.convert_case.snake,snake_case,sanke_case
+menu.search,Search,جستجو
+menu.search.find,Find...,یافتن...
+menu.search.find_next,Find Next,یافته بعدی
+menu.search.find_prev,Find Previous,یافته قبلی
+menu.search.replace,Replace...,جایگزینی...
+menu.search.replace_all,Replace All,چایگزینی همه
+menu.search.find_in_files,Find In Files...,یافتن در فایل ها...
+menu.search.replace_in_files,Replace In Files...,جایگزینی در فایل ها...
+menu.search.find_usages,Find Usages,یافتن استفاده ها
+menu.go_to,Go To,انتقال
+menu.go_to.line,Go To Line...,برو به خط...
+menu.go_to.code_regions,Code Regions...,محدوده کد ها...
+menu.go_to.insert_nav_mark,Insert Navigation Mark,افزودن علامت ناوبری
+menu.go_to.nav_marks,Navigation Marks...,علائم ناوبری...
+menu.go_to.table_of_contents,Table Of Contents...,لیست محتوا...
+menu.go_to.bookmarks,Bookmarks...,نشانک ها...
+menu.go_to.toggle_bookmark,Toggle Bookmark,نشانک گذاری
+menu.go_to.remove_all_bookmarks,Remove All Bookmarks,حذف همه نشانک ها
+menu.go_to.breakpoints,Breakpoints...,نقاط توقف...
+menu.go_to.toggle_breakpoint,Toggle Breakpoint,نقطه توقف
+menu.go_to.remove_all_breakpoints,Remove All Breakpoints,حذف همه نقاط توقف
+menu.command,Command,دستور
+menu.command.remove_all_indents,Remove All Indents,حذف همه تورفتگی ها
+menu.command.palette,Command Pallete...,پالت فرمان...
+menu.format,Format,قالب
+menu.format.auto_indention,Auto Indention,تورفتگی خودکار
+menu.format.save_as_template,Save As Template...,ذخیره به عنوان قالب...
+menu.format.templates,Templates...,قالب ها...
+menu.insert,Insert,درج
+menu.insert.bookmark,Bookmark,نشانک
+menu.insert.breakpoint,Breakpoint,نقطه توقف
+menu.insert.change_log,Change Log,گزارش تغییر
+menu.insert.license,License,مجوز
+menu.insert.footnote,Footnote,پانویس
+menu.insert.header,Header,سربرگ
+menu.insert.code_region,Code Region,محدوده کد
+menu.insert.time,Time,زمان
+menu.insert.date,Date,تاریخ
+menu.insert.signature,Signature,امضا
+menu.view,View,نمایش
+menu.view.increase_font,Increase Font Size,افزایش اندازه قلم
+menu.view.reduce_font,Reduce Font Size,کاهش اندازه قلم
+menu.view.reset_font,Reset Font Size,بازنشانی اندازه قلم
+menu.view.toggle_dark_mode,Toggle Dark Mode,تغییر حالت تاریک
+menu.view.notes_panel,Notes Panel,پنل یادداشت
+menu.view.changelog_panel,Change Log Panel,پنل گزارش تعییرات
+menu.view.line_length_guides,Line Lenght Guids...,خطوط راهنما...
+menu.view.show_breakpoints,Show Breakpoints,نمایش نقاط توقف
+menu.view.show_bookmarks,Show Bookmarks,نمایش نشانک ها
+menu.view.show_line_numbers,Show Line Numbers,نمایش شماره خط
+menu.view.show_fold_gutter,Show Fold Gutter,نمایش نگهدارنده خط
+menu.view.show_minimap,Show Minimap,نمایش نمای کوچک
+menu.view.block_caret,Block Type Caret,نشانگر بلوکی
+menu.view.highlight_occurrences,Highlight All Occurrences,برجسته کردن موادر مشابه
+menu.view.highlight_current_line,Highlight Current Line,برجسته کردن خط فعلی
+menu.view.show_control_chars,Show Control Characters,نمایش کاراکتر های کنترل
+menu.view.show_tabs,Show Tabs,نمایش تب ها
+menu.view.show_spaces,Show Spaces,نمایش فاصله ها
+menu.view.syntax_highlighter,Syntax Highlighter...,برجسته ساز نحوی...
+menu.view.normal_view,Normal View,نمای عادی
+menu.view.presentation_view,Presentation View,نمای ارائه
+menu.view.reading_view,Reading View,نمای مطالعه
+menu.view.full_screen,Full Screen,تمام صفحه
+menu.tools,Tools,ابزار ها
+menu.tools.spell_check,Spell Check,بررسی املا
+menu.tools.color_picker,Color Picker,انتخابگر رنگ
+menu.tools.security,Security...,امنیت...
+menu.tools.counter,Counter...,شماشگر...
+menu.tools.translation,Translation...,ترجمه...
+menu.tools.clipboard_history,Clipboard History,تاریخچه بریده دان
+menu.tools.function_creator,Function Creator...,تابع ساز...
+menu.tools.documentation,Documentation...,سند نویسی...
+menu.tools.auto_completion,Auto Completion...,تکمیل خودکار...
+menu.tools.time_management,Time Management...,مدیریت زمان...
+menu.tools.calendar,Calendar,تقویم
+menu.tools.extensions,Extensions,افزونه ها
+menu.tools.signature,Signature...,امضا...
+menu.tools.date_time,Date & Time...,تاریخ و زمان...
+menu.tools.macros,Macros...,ماکرو ها...
+menu.tools.auto_backup,Auto Backup...,پشتیبان گیری خودکار...
+menu.settings,Settings,تنظیمات
+menu.settings.preferences,Preferences...,ترجیحات...
+menu.settings.extensions,Extensions...,افزونه ها...
+menu.settings.indents,Indents...,تورفتگی ها...
+menu.settings.tools,Tools,ابزار ها
+menu.help,Help,کمک
+menu.help.github,GitHub Repository,مخزن گیت هاب
+menu.help.mode_library,Mode Library,کتابخانه مود
+menu.help.forum,Forum,انجمن
+menu.help.feedback,Share Feedback,ارسال بازخورد
+menu.help.submit_issue,Submit issue,ثبت اشکال
+menu.help.docs,Online Docs,اسناد آنلاین
+menu.help.about,About,درباره
