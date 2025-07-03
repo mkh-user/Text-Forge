@@ -58,6 +58,7 @@ func get_text(key: String, source_file: String) -> String:
 		var line = file.get_csv_line()
 		if line[0] == key:
 			file.close()
+			if line.size() == 1: return line[0]
 			return line[index] if line.size() > index else line[1]
 	Signals.notification.emit(2, "Invalid translation key!", "Can't find key \"{0}\" in translation source: {1}".format([key, source_file]))
 	file.close()
