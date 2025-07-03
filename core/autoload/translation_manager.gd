@@ -31,6 +31,7 @@ func set_language(language_code: String = "en", fallback_code: String = "en") ->
 ## [br] - [member language] and [member fallback] do not exist: [code]Invalid language code![/code] error, returns [param key]
 ## [br] - [param key] does not exist: [code]Invalid translation key![/code] error, returns [param key]
 func get_text(key: String, source_file: String) -> String:
+	if key == "": return ""
 	if not FileAccess.file_exists(source_file):
 		Signals.notification.emit(2, "Can't load translation data", "File {0} doesn't exitsts!".format([source_file]))
 		return key
