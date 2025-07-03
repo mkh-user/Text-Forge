@@ -2,6 +2,12 @@ extends Node
 class_name TextForgeTranslator
 
 ## Text Forge Translation and localization tool. (Global singleton: [code]TFT[/code])
+##
+## This class is an autoload ([code]TFT[/code]) for translation feature in Text Forge, based on
+## Text Forge modularity we  haven't any translation database, so if translate module texts is
+## Required, modules should hold thier translation csv files.
+## [br][b]Note:[/b] This function will send notifications, but can't translate itself notifications
+## because this action can make infinite loop, so notifications from this function will be english!
 
 ## Current language code, use [method set_language] instead to set it.
 var language: String = "en"
@@ -58,7 +64,9 @@ func get_text(key: String, source_file: String) -> String:
 	return key
 
 
-## Returns translated [param key] from [param source] string csv, will save it and call [method get_text] for it.
+## Returns translated [param key] from [param source] string csv.
+## [br][b]Note:[/b] This function will save [param source] in [code]user://_translation.cfg[/code]
+## and call [method get_text] for it, so if there is any bug you will see [code]user://_translation.cfg[/code] as source file.
 func get_text_from_string_source(key: String, source: String) -> String:
 	var file = FileAccess.open("user://_translation.cfg", FileAccess.WRITE)
 	file.store_string(source)
