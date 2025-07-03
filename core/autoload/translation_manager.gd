@@ -10,11 +10,8 @@ var fallback: String = "en"
 
 
 func _ready() -> void:
-	if FileAccess.file_exists("user://data.cfg"):
-		var config := ConfigFile.new()
-		config.load("user://data.cfg")
-		language = config.get_value("language", "main", "en")
-		fallback = config.get_value("language", "fallback", "en")
+	language = Settings.get_setting("languages", "main", "en")
+	fallback = Settings.get_setting("languages", "fallback", "en")
 	if FileAccess.file_exists("user://_translation.cfg"):
 		DirAccess.remove_absolute("user://_translation.cfg")
 
@@ -23,6 +20,8 @@ func _ready() -> void:
 func set_language(language_code: String = "en", fallback_code: String = "en") -> void:
 	language = language_code
 	fallback = fallback_code
+	Settings.set_setting("languages", "main", language)
+	Settings.set_setting("languages", "fallback", fallback)
 
 
 ## Returns translated text from a saved [b]csv[/b] file, possible exceptions:
