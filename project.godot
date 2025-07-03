@@ -29,7 +29,7 @@ Signals="*res://core/autoload/signals.gd"
 SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
 Global="*res://core/autoload/global.gd"
 ExtensionHub="*res://core/extension_core/extension_hub.gd"
-TFT="res://core/autoload/translation_manager.gd"
+TFT="*res://core/autoload/translation_manager.gd"
 
 [debug]
 

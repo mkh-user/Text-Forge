@@ -42,6 +42,7 @@ signal update_recent_files
 @warning_ignore_restore("unused_signal")
 
 func _ready() -> void:
+	notification.connect(func(type, title, text): print(type, title, text))
 	save_request.connect(_handle_save_request)
 	save_finished.connect(_resume_after_save)
 

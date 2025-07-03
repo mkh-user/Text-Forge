@@ -1,0 +1,147 @@
+key,en
+menu.file,File
+menu.file.new,New
+menu.file.new_with_template,New With Template
+menu.file.open,Open...
+menu.file.recent_files,Recent Files
+menu.file.save,Save
+menu.file.save_as,Save As...
+menu.file.reload,Reload
+menu.file.close,Close
+menu.file.backup_create,Create Backup...
+menu.file.backup_load,Load From Backup...
+menu.file.copy_path,Copy Path
+menu.file.show_in_filesystem,Show In FileSystem
+menu.file.version_history,Version History...
+menu.file.merge_with,Merge With...
+menu.file.compare_with,Compare With...
+menu.file.storage_management,Storage Management...
+menu.file.secure_delete,Secure Delete
+menu.file.exit,Exit
+menu.edit,Edit
+menu.edit.undo,Undo
+menu.edit.redo,Redo
+menu.edit.cut,Cut
+menu.edit.copy,Copy
+menu.edit.paste,Paste
+menu.edit.delete,Delete
+menu.edit.select_all,Select All
+menu.edit.duplicate_selection,Duplicate Selection
+menu.edit.evulate_selection,Evulate Selection
+menu.edit.line,Line
+menu.edit.line.move_up,Move Lines Up
+menu.edit.line.move_down,Move Lines Down
+menu.edit.line.indent,Indent
+menu.edit.line.unindent,Unindent
+menu.edit.line.delete,Delete Lines
+menu.edit.line.toggle_comment,Toggle Comment
+menu.edit.line.duplicate,Duplicate Lines
+menu.edit.line.select_whole,Select Whole Line
+menu.edit.line.select_paragraph,Select Paragraph
+menu.edit.line.join,Join Lines
+menu.edit.line.move_to_new_file,Move To New File
+menu.edit.completion_query,Completion Query
+menu.edit.auto_format,Auto Format
+menu.edit.indention,Indention
+menu.edit.indention.to_spaces,Convert Indent To Spaces
+menu.edit.indention.to_tabs,Convert Indent To Tabs
+menu.edit.convert_case,Convert Case
+menu.edit.convert_case.upper,UPPER
+menu.edit.convert_case.lower,lower
+menu.edit.convert_case.capitalize,Capitalize
+menu.edit.convert_case.camel,camelCase
+menu.edit.convert_case.pascal,PascalCase
+menu.edit.convert_case.snake,snake_case
+menu.search,Search
+menu.search.find,Find...
+menu.search.find_next,Find Next
+menu.search.find_prev,Find Previous
+menu.search.replace,Replace...
+menu.search.replace_all,Replace All
+menu.search.find_in_files,Find In Files...
+menu.search.replace_in_files,Replace In Files...
+menu.search.find_usages,Find Usages
+menu.go_to,Go To
+menu.go_to.line,Go To Line...
+menu.go_to.code_regions,Code Regions...
+menu.go_to.insert_nav_mark,Insert Navigation Mark
+menu.go_to.nav_marks,Navigation Marks...
+menu.go_to.table_of_contents,Table Of Contents...
+menu.go_to.bookmarks,Bookmarks...
+menu.go_to.toggle_bookmark,Toggle Bookmark
+menu.go_to.remove_all_bookmarks,Remove All Bookmarks
+menu.go_to.breakpoints,Breakpoints...
+menu.go_to.toggle_breakpoint,Toggle Breakpoint
+menu.go_to.remove_all_breakpoints,Remove All Breakpoints
+menu.command,Command
+menu.command.remove_all_indents,Remove All Indents
+menu.command.palette,Command Pallete...
+menu.format,Format
+menu.format.auto_indention,Auto Indention
+menu.format.save_as_template,Save As Template...
+menu.format.templates,Templates...
+menu.insert,Insert
+menu.insert.bookmark,Bookmark
+menu.insert.breakpoint,Breakpoint
+menu.insert.change_log,Change Log
+menu.insert.license,License
+menu.insert.footnote,Footnote
+menu.insert.header,Header
+menu.insert.code_region,Code Region
+menu.insert.time,Time
+menu.insert.date,Date
+menu.insert.signature,Signature
+menu.view,View
+menu.view.increase_font,Increase Font Size
+menu.view.reduce_font,Reduce Font Size
+menu.view.reset_font,Reset Font Size
+menu.view.toggle_dark_mode,Toggle Dark Mode
+menu.view.notes_panel,Notes Panel
+menu.view.changelog_panel,Change Log Panel
+menu.view.line_length_guides,Line Lenght Guids...
+menu.view.show_breakpoints,Show Breakpoints
+menu.view.show_bookmarks,Show Bookmarks
+menu.view.show_line_numbers,Show Line Numbers
+menu.view.show_fold_gutter,Show Fold Gutter
+menu.view.show_minimap,Show Minimap
+menu.view.block_caret,Block Type Caret
+menu.view.highlight_occurrences,Highlight All Occurrences
+menu.view.highlight_current_line,Highlight Current Line
+menu.view.show_control_chars,Show Control Characters
+menu.view.show_tabs,Show Tabs
+menu.view.show_spaces,Show Spaces
+menu.view.syntax_highlighter,Syntax Highlighter...
+menu.view.normal_view,Normal View
+menu.view.presentation_view,Presentation View
+menu.view.reading_view,Reading View
+menu.view.full_screen,Full Screen
+menu.tools,Tools
+menu.tools.spell_check,Spell Check
+menu.tools.color_picker,Color Picker
+menu.tools.security,Security...
+menu.tools.counter,Counter...
+menu.tools.translation,Translation...
+menu.tools.clipboard_history,Clipboard History
+menu.tools.function_creator,Function Creator...
+menu.tools.documentation,Documentation...
+menu.tools.auto_completion,Auto Completion...
+menu.tools.time_management,Time Management...
+menu.tools.calendar,Calendar
+menu.tools.extensions,Extensions
+menu.tools.signature,Signature...
+menu.tools.date_time,Date & Time...
+menu.tools.macros,Macros...
+menu.tools.auto_backup,Auto Backup...
+menu.settings,Settings
+menu.settings.preferences,Preferences...
+menu.settings.extensions,Extensions...
+menu.settings.indents,Indents...
+menu.settings.tools,Tools
+menu.help,Help
+menu.help.github,GitHub Repository
+menu.help.mode_library,Mode Library
+menu.help.forum,Forum
+menu.help.feedback,Share Feedback
+menu.help.submit_issue,Submit issue
+menu.help.docs,Online Docs
+menu.help.about,About
