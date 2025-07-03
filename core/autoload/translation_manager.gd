@@ -27,7 +27,7 @@ func set_language(language_code: String = "en", fallback_code: String = "en") ->
 
 ## Returns translated text from a saved [b]csv[/b] file, possible exceptions:
 ## [br] - [param source_file] does not exist: [code]Can't load translation data[/code] error, returns [param key]
-## [br] - [member language] does not exist but the [member fallback] is successful: [code]Translation fallback to {0}[/code] warning, returns translated key to fallback language
+## [br] - [member language] does not exist but the [member fallback] is successful: [code]Translation fallback to %fallback%[/code] warning, returns translated key to fallback language
 ## [br] - [member language] and [member fallback] do not exist: [code]Invalid language code![/code] error, returns [param key]
 ## [br] - [param key] does not exist: [code]Invalid translation key![/code] error, returns [param key]
 func get_text(key: String, source_file: String) -> String:
