@@ -42,8 +42,23 @@ signal update_recent_files
 @warning_ignore_restore("unused_signal")
 
 func _ready() -> void:
+	editor_notification.connect(_log_notification)
 	save_request.connect(_handle_save_request)
 	save_finished.connect(_resume_after_save)
+
+
+func _log_notification(type: int, title: String, text: String) -> void:
+	var start: String
+	match type:
+		0:
+			start = "[color=white]Notification: Info: "
+		1:
+			start = "[color=yellow]Notification: Warning: "
+		2:
+			start = "[color=red]Notification: Error: "
+		_:
+			start = "[color=darkgray]Notification: Other: "
+	print_rich("{0}{1}[/color]{2}{3}".format([start, title, "\n\t" if text != "" else "", text]))
 
 
 func _handle_save_request(from: int) -> void:

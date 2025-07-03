@@ -22,6 +22,8 @@ class_name Core
 const MENU_BUTTON_SCENE := preload("res://core/prebuilds/menu_button.tscn")
 ## Path to UI configurations
 const MAIN_UI_DATA := "res://data/main_ui.ini"
+## Path to translation source
+const TRANSLATION_FILE := "res://data/translation.csv"
 ## Recent files log file
 const RECENT_FILES_DATA := "user://recent_files.txt"
 ## Folder for saved templates
@@ -78,14 +80,14 @@ func _load_main_menu() -> void:
 		menu_name = menu_item.erase(menu_item.rfind("_menu"), 5).capitalize() # get menu name
 		
 		new_menu_button = MENU_BUTTON_SCENE.instantiate() # create new menu button
-		new_menu_button.text = menu_name
+		new_menu_button.text = TFT.get_text("menu." + menu_name.to_snake_case(), TRANSLATION_FILE)
 		
 		# for each option in current menu
 		for item: Dictionary in main_menu_data[menu_item]:
 			main_menu_data[menu_item][main_menu_data[menu_item].find(item)]["popup"] = new_menu_button.get_popup()
 			match item.get("type", 0):
 				0: # original option
-					new_menu_button.get_popup().add_item(item.get("text", ""), item.get("code", -1))
+					new_menu_button.get_popup().add_item(TFT.get_text(item.get("key", ""), TRANSLATION_FILE), item.get("code", -1))
 				1: # submenu
 					var submenu := PopupMenu.new()
 					match item.get("text", ""):
@@ -112,25 +114,25 @@ func _load_main_menu() -> void:
 								main_menu_data[submenu_name][main_menu_data[submenu_name].find(submenu_item)]["popup"] = submenu
 								match submenu_item.get("type", 0):
 									0: # original option
-										submenu.add_item(submenu_item.get("text", ""), submenu_item.get("code", -1))
+										submenu.add_item(TFT.get_text(submenu_item.get("key", ""), TRANSLATION_FILE), submenu_item.get("code", -1))
 									-1: # seperator
-										submenu.add_separator(submenu_item.get("text", ""))
+										submenu.add_separator(TFT.get_text(submenu_item.get("key", ""), TRANSLATION_FILE))
 							# connect submenu to handle state function
 							submenu.id_pressed.connect(_handle_menu_option_state.bind(submenu))
 					# connect submenu to handle state function for special items
 					if not submenu.id_pressed.is_connected(_handle_menu_option_state):
 						submenu.id_pressed.connect(_handle_menu_option_state.bind(submenu, item.get("text", "")))
 					# add submenu
-					new_menu_button.get_popup().add_submenu_node_item(item.get("text", ""), submenu, item.get("code", -1))
+					new_menu_button.get_popup().add_submenu_node_item(TFT.get_text(item.get("key", ""), TRANSLATION_FILE), submenu, item.get("code", -1))
 					# disable empty submenus
 					if submenu.item_count == 0:
 						new_menu_button.get_popup().set_item_disabled(-1, true)
 				-1: # seperator
-					new_menu_button.get_popup().add_separator(item.get("text", ""))
+					new_menu_button.get_popup().add_separator(TFT.get_text(item.get("key", ""), TRANSLATION_FILE))
 				2: # checkable
-					new_menu_button.get_popup().add_check_item(item.get("text", ""), item.get("code", -1))
+					new_menu_button.get_popup().add_check_item(TFT.get_text(item.get("key", ""), TRANSLATION_FILE), item.get("code", -1))
 				3: # radio
-					new_menu_button.get_popup().add_radio_check_item(item.get("text", ""), item.get("code", -1))
+					new_menu_button.get_popup().add_radio_check_item(TFT.get_text(item.get("key", ""), TRANSLATION_FILE), item.get("code", -1))
 		# connect menu to handle state function
 		new_menu_button.get_popup().id_pressed.connect(_handle_menu_option_state.bind(new_menu_button.get_popup()))
 		# add menu to menus
