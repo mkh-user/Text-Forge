@@ -37,6 +37,7 @@ var main_menu_data: Dictionary
 
 ## This is start point of Text Forge
 func _ready() -> void:
+	get_window().files_dropped.connect(func(files): Signals.open_file.emit(files[0]))
 	Signals.update_recent_files.connect(_update_recent_files)
 	_load_main_menu()
 	_load_scripts()
