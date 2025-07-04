@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Notifications panel
 - Panel support
 - Translation system
-- Settings sytstem
+- Settings system
 - Log editor notifications
 - Find & Replace panel
 - Action Scripts for:
@@ -34,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 		- Bookmarks
 		- Line Numbers
 	- Help:
-		- Github Repository
+		- GitHub Repository
 		- Mode Library
 		- Forum
 		- Share Feedback
