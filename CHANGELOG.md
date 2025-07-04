@@ -42,6 +42,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 		- Online Docs
 		- About
 
+### Changed
+
+- Edit/Auto Format shortcut: ~Ctrl+Alt+F~ to Ctrl+Shift+F
+
 ### Removed
 
 - Help option from Settings menu (added Help menu instead)
