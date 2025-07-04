@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=32 format=3 uid="uid://dnvygvv1c55qb"]
+[gd_resource type="Theme" load_steps=35 format=3 uid="uid://dnvygvv1c55qb"]
 
 [ext_resource type="FontFile" uid="uid://d03vkdeo2egtn" path="res://assets/JetBrainsMono-Regular.ttf" id="1_qjhx0"]
 [ext_resource type="Texture2D" uid="uid://bwarwcjjx7it3" path="res://assets/active.png" id="2_u427p"]
@@ -45,6 +45,12 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ojjt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_amhry"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amhry"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tipki"]
 
@@ -172,6 +178,15 @@ Button/styles/focus = SubResource("StyleBoxFlat_qjhx0")
 Button/styles/hover = SubResource("StyleBoxFlat_24s7k")
 Button/styles/normal = SubResource("StyleBoxFlat_n1fou")
 Button/styles/pressed = SubResource("StyleBoxFlat_n1fou")
+CheckBox/icons/checked = ExtResource("2_u427p")
+CheckBox/icons/checked_disabled = ExtResource("3_7rtxy")
+CheckBox/icons/radio_checked = ExtResource("2_u427p")
+CheckBox/icons/radio_checked_disabled = ExtResource("3_7rtxy")
+CheckBox/icons/radio_unchecked = SubResource("CompressedTexture2D_1ojjt")
+CheckBox/icons/radio_unchecked_disabled = SubResource("CompressedTexture2D_amhry")
+CheckBox/icons/unchecked = ExtResource("4_hofdy")
+CheckBox/icons/unchecked_disabled = ExtResource("5_0ahyh")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_amhry")
 CodeEdit/colors/caret_color = Color(1, 1, 1, 1)
 CodeEdit/colors/selection_color = Color(1, 1, 1, 0.117647)
 CodeEdit/constants/caret_width = 2

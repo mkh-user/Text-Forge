@@ -29,6 +29,12 @@ signal new_file
 signal save_request(from: int)
 ## Emits when save request finished, signal bus will emit [signal run_script] with [param to] id
 signal save_finished(to: int)
+## Requests open find panel
+signal open_find_panel
+## Requests shift find result selection
+signal shift_find_result(next: bool)
+## Requests replace all find results
+signal replace_all
 
 ## Emits when user selects a caret (for multi caret edits that have caret selection support)
 signal caret_selected(index: int)

@@ -1,4 +1,4 @@
-﻿key,en,fa
+key,en,fa
 menu.file,File,فایل
 menu.file.new,New,جدید
 menu.file.new_with_template,New With Template,جدید با قابل
@@ -53,14 +53,10 @@ menu.edit.convert_case.camel,camelCase,camelCase
 menu.edit.convert_case.pascal,PascalCase,PascalCase
 menu.edit.convert_case.snake,snake_case,sanke_case
 menu.search,Search,جستجو
-menu.search.find,Find...,یافتن...
+menu.search.find_and_replace,Find and Replace...,یافتن و جایگزینی...
 menu.search.find_next,Find Next,یافته بعدی
 menu.search.find_prev,Find Previous,یافته قبلی
-menu.search.replace,Replace...,جایگزینی...
 menu.search.replace_all,Replace All,چایگزینی همه
-menu.search.find_in_files,Find In Files...,یافتن در فایل ها...
-menu.search.replace_in_files,Replace In Files...,جایگزینی در فایل ها...
-menu.search.find_usages,Find Usages,یافتن استفاده ها
 menu.go_to,Go To,انتقال
 menu.go_to.line,Go To Line...,برو به خط...
 menu.go_to.code_regions,Code Regions...,محدوده کد ها...
@@ -96,6 +92,7 @@ menu.view.increase_font,Increase Font Size,افزایش اندازه قلم
 menu.view.reduce_font,Reduce Font Size,کاهش اندازه قلم
 menu.view.reset_font,Reset Font Size,بازنشانی اندازه قلم
 menu.view.toggle_dark_mode,Toggle Dark Mode,تغییر حالت تاریک
+menu.view.focus_editor,Focus On Editor,تمرکز روی ویرایشگر
 menu.view.notes_panel,Notes Panel,پنل یادداشت
 menu.view.changelog_panel,Change Log Panel,پنل گزارش تعییرات
 menu.view.line_length_guides,Line Lenght Guids...,خطوط راهنما...
