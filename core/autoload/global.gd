@@ -3,7 +3,7 @@ class_name GlobalAccess
 
 ## Global access way to all parts of Text Forge
 ## 
-## You can access to this class using [code]Global[/code] autoload
+## You can access to this class using [code]Global[/code] autoload.
 
 ## Returns currently opened file path
 func get_file_path() -> String:
@@ -59,3 +59,6 @@ func get_editor_api() -> EditorAPI:
 ## Return [PanelManager] note
 func get_panel_manager() -> PanelManager:
 	return get_core().panel_manager
+
+func send_notification(type: int = 0, title: String = "", text: String = "") -> void:
+	Signals.editor_notification.emit(type, title, text)

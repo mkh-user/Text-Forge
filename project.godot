@@ -35,6 +35,7 @@ ExtensionHub="*res://core/extension_core/extension_hub.gd"
 [debug]
 
 file_logging/max_log_files=200
+gdscript/warnings/unused_parameter=0
 gdscript/warnings/narrowing_conversion=0
 
 [display]
