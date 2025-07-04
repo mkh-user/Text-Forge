@@ -55,11 +55,13 @@ func _on_item_list_item_selected(idx: int) -> void:
 
 
 func _on_prev_pressed() -> void:
+	if list.item_count == 0: return
 	_on_item_list_item_selected(list.get_selected_items()[0] - 1 if list.get_selected_items()[0] != 0 else list.item_count - 1)
 	list.select(list.get_selected_items()[0] - 1 if list.get_selected_items()[0] != 0 else list.item_count - 1)
 
 
 func _on_next_pressed() -> void:
+	if list.item_count == 0: return
 	_on_item_list_item_selected(list.get_selected_items()[0] + 1 if list.item_count - 1 != list.get_selected_items()[0] else 0)
 	list.select(list.get_selected_items()[0] + 1 if list.item_count - 1 != list.get_selected_items()[0] else 0)
 
